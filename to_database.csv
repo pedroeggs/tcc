@@ -1,0 +1,234 @@
+﻿O(c1ccc(cc1)C=CC)C;Anis;1-methoxy-4-prop-1-enylbenzene;C10H12O
+O(c1ccc(cc1)CCC)C;Anis;1-methoxy-4-propylbenzene;C10H14O
+O=C(OC)C=CC=CC;Anis;methyl hexa-2,4-dienoate;C7H10O2
+O=C(OC)c1ccc(OC)cc1;Anis;methyl 4-methoxybenzoate;C9H10O3
+O=C(OCC)C;Anis;ethyl acetate;C4H8O2
+O=C1C(=O)C(C)C(C)C1;Anis;3,4-dimethylcyclopentane-1,2-dione;C7H10O2
+O=C1OC(C)CC1;Anis;5-methyloxolan-2-one;C5H8O2
+Oc1ccc(cc1(OC))CCC;Anis;2-methoxy-4-propylphenol;C10H14O2
+Oc1ccc(cc1(OC))CO;Anis;4-(hydroxymethyl)-2-methoxyphenol;C8H10O3
+O=C(C=CC1=C(C)CCCC1(C)C)C;Balsamo;4-(2,6,6-trimethylcyclohexen-1-yl)but-3-en-2-one;C13H20O
+O=C(O)C(=CC)C;Balsamo;2-methylbut-2-enoic acid;C5H8O2
+O=C(O)c1ccccc1;Balsamo;benzoic acid;C7H6O2
+O=C(Oc1ccccc1)c2ccccc2(O);Balsamo;phenyl 2-hydroxybenzoate;C13H10O3
+O=C(OCC)C(C(=O)C)Cc1ccccc1;Balsamo;ethyl 2-benzyl-3-oxobutanoate;C13H16O3
+O=C(OCC=C)C=Cc1ccccc1;Balsamo;prop-2-enyl 3-phenylprop-2-enoate;C12H12O2
+O=C(OCC=Cc1ccccc1)C(C)C;Balsamo;3-phenylprop-2-enyl 2-methylpropanoate;C13H16O2
+O=C(OCC=Cc1ccccc1)CC;Balsamo;3-phenylprop-2-enyl propanoate;C12H14O2
+O=C(OCC=Cc1ccccc1)CCC;Balsamo;3-phenylprop-2-enyl butanoate;C13H16O2
+O=C(OCCC=CCC)c1ccccc1(O);Balsamo;hex-3-enyl 2-hydroxybenzoate;C13H16O3
+O=C(OCCCCCC)c1ccccc1;Balsamo;hexyl benzoate;C13H18O2
+O=Cc1ccc(OC(=O)C)c(OC)c1;Balsamo;(4-formyl-2-methoxyphenyl) acetate;C10H10O4
+O=Cc1ccc2OCOc2(c1);Balsamo;1,3-benzodioxole-5-carbaldehyde;C8H6O3
+O=COCC=Cc1ccccc1;Balsamo;3-phenylprop-2-enyl formate;C10H10O2
+OCC=C(C)CCCC(C)CCCC(C)CCCC(C)C;Balsamo;3,7,11,15-tetramethylhexadec-2-en-1-ol;C20H40O
+OCC=Cc1ccccc1;Balsamo;3-phenylprop-2-en-1-ol;C9H10O
+OCCCc1ccccc1;Balsamo;3-phenylpropan-1-ol;C9H12O
+O(c1ccccc1(OC))C;Baunilha;1,2-dimethoxybenzene;C8H10O2
+O=C(C)Cc1ccc(OC)cc1;Baunilha;1-(4-methoxyphenyl)propan-2-one;C10H12O2
+O=C(C)CCc1ccc(O)c(OC)c1;Baunilha;4-(4-hydroxy-3-methoxyphenyl)butan-2-one;C11H14O3
+O=C(c1ccc(O)c(OC)c1)C;Baunilha;1-(4-hydroxy-3-methoxyphenyl)ethanone;C9H10O3
+O=C(c1ccccc1)C(O)c2ccccc2;Baunilha;2-hydroxy-1,2-diphenylethanone;C14H12O2
+O=C(OCc1ccc(OC)cc1)C;Baunilha;(4-methoxyphenyl)methyl acetate;C10H12O3
+O=C(OCc1ccc(OC)cc1)CC;Baunilha;(4-methoxyphenyl)methyl propanoate;C11H14O3
+O=CC=Cc1ccccc1;Baunilha;3-phenylprop-2-enal;C9H8O
+O=Cc1ccc(O)c(OC)c1;Baunilha;4-hydroxy-3-methoxybenzaldehyde;C8H8O3
+O=Cc1ccc(O)c(OCC)c1;Baunilha;3-ethoxy-4-hydroxybenzaldehyde;C9H10O3
+O=Cc1ccc(OC)c(OC)c1;Baunilha;3,4-dimethoxybenzaldehyde;C9H10O3
+Oc1ccc(C=C)cc1;Baunilha;4-ethenylphenol;C8H8O
+Oc1ccc(cc1(OC))C;Baunilha;2-methoxy-4-methylphenol;C8H10O2
+OCc1ccc(OC)cc1;Baunilha;(4-methoxyphenyl)methanol;C8H10O2
+C=C2C1CCC(C1)C2(C)C;Canfora;2,2-dimethyl-3-methylidenebicyclo[2.2.1]heptane;C10H16
+O(c1ccc(cc1)C)C;Canfora;1-methoxy-4-methylbenzene;C8H10O
+O=C(c1ccccc1)CCC;Canfora;1-phenylbutan-1-one;C10H12O
+O=C1C(=C(C)C)CCC(C)C1;Canfora;5-methyl-2-propan-2-ylidenecyclohexan-1-one;C10H16O
+O=C1CC2CCC1(C)C2(C)(C);Canfora;1,7,7-trimethylbicyclo[2.2.1]heptan-2-one;C10H16O
+O=Cc1ccc(C)s1;Canfora;5-methylthiophene-2-carbaldehyde;C6H6OS
+O1C(C)(C)C2CCC1(C)CC2;Canfora;1,3,3-trimethyl-2-oxabicyclo[2.2.2]octane;C10H18O
+O1C2(C)(CCC1(CC2)C(C)C);Canfora;1-methyl-4-propan-2-yl-7-oxabicyclo[2.2.1]heptane;C10H18O
+OC(C(C)C)C(C)(C)C;Canfora;2,2,4-trimethylpentan-3-ol;C8H18O
+OC(C(C)C)C(C)C;Canfora;2,4-dimethylpentan-3-ol;C7H16O
+OC(C(C)C)C(C)CC;Canfora;2,4-dimethylhexan-3-ol;C8H18O
+OC(C)(C)C;Canfora;2-methylpropan-2-ol;C4H10O
+OC(C)(C)C(C)C;Canfora;2,3-dimethylbutan-2-ol;C6H14O
+OC(C)(C)C(C)CC;Canfora;2,3-dimethylpentan-2-ol;C7H16O
+OC(C)(C)C(C)CCC;Canfora;2,3-dimethylhexan-2-ol;C8H18O
+OC(C)(C)CC;Canfora;2-methylbutan-2-ol;C5H12O
+OC(C)(C)CC(C)C;Canfora;2,4-dimethylpentan-2-ol;C7H16O
+OC(C)(C)CCC;Canfora;2-methylpentan-2-ol;C6H14O
+OC(C)(CC)C(C)C;Canfora;2,3-dimethylpentan-3-ol;C7H16O
+OC(C)(CC)CC;Canfora;3-methylpentan-3-ol;C6H14O
+OC(C)(CC)CC(C)C;Canfora;3,5-dimethylhexan-3-ol;C8H18O
+OC(C)(CC)CCC;Canfora;3-methylhexan-3-ol;C7H16O
+OC(C)(CCC)C(C)C;Canfora;2,3-dimethylhexan-3-ol;C8H18O
+OC(C)C(C)(C)C;Canfora;3,3-dimethylbutan-2-ol;C6H14O
+OC(C)C(C)C;Canfora;3-methylbutan-2-ol;C5H12O
+OC(C)C(C)CC;Canfora;3-methylpentan-2-ol;C6H14O
+OC(C)C(C)CCC;Canfora;3-methylhexan-2-ol;C7H16O
+OC(C)C(CC)CC;Canfora;3-ethylpentan-2-ol;C7H16O
+OC(C)CC(C)(C)C;Canfora;4,4-dimethylpentan-2-ol;C7H16O
+OC(C)CC(C)C;Canfora;4-methylpentan-2-ol;C6H14O
+OC(CC(C)C)C(C)C;Canfora;2,5-dimethylhexan-3-ol;C8H18O
+OC(CC)(CC)CC;Canfora;3-ethylpentan-3-ol;C7H16O
+OC(CC)C(C)(C)C;Canfora;2,2-dimethylpentan-3-ol;C7H16O
+OC(CC)C(C)C;Canfora;2-methylpentan-3-ol;C6H14O
+OC(CC)C(C)CC;Canfora;4-methylhexan-3-ol;C7H16O
+OC(CC)C(C)CCC;Canfora;4-methylheptan-3-ol;C8H18O
+OC(CC)C(CC)CC;Canfora;4-ethylhexan-3-ol;C8H18O
+OC(CC)CC;Canfora;pentan-3-ol;C5H12O
+OC(CC)CC(C)C;Canfora;5-methylhexan-3-ol;C7H16O
+OC(CC)CCC;Canfora;hexan-3-ol;C6H14O
+OC(CCC)C(C)(C)C;Canfora;2,2-dimethylhexan-3-ol;C8H18O
+OC(CCC)C(C)C;Canfora;2-methylhexan-3-ol;C7H16O
+OC(CCC)C(C)CC;Canfora;3-methylheptan-4-ol;C8H18O
+OC(CCC)CC(C)C;Canfora;2-methylheptan-4-ol;C8H18O
+OC1CC2CCC1(C)C2(C)(C);Canfora;1,7,7-trimethylbicyclo[2.2.1]heptan-2-ol;C10H18O
+OCC(C)(C)C;Canfora;2,2-dimethylpropan-1-ol;C5H12O
+OCC(C)(C)CC;Canfora;2,2-dimethylbutan-1-ol;C6H14O
+OCC(C)C;Canfora;2-methylpropan-1-ol;C4H10O
+OCC(C)C(C)CC;Canfora;2,3-dimethylpentan-1-ol;C7H16O
+OCC(CC)CC;Canfora;2-ethylbutan-1-ol;C6H14O
+OCCC(C)(C)C;Canfora;3,3-dimethylbutan-1-ol;C6H14O
+OC(C)C(C)C(C)CC;Canfora, Frutado;3,4-dimethylhexan-2-ol;C8H18O
+OC(CCCC)C(C)C;Canfora, Frutado;2-methylheptan-3-ol;C8H18O
+OCC(CC)CCCC;Canfora, Rosa;2-ethylhexan-1-ol;C8H18O
+NCc1ccc(cc1C)C;Doce;(2,4-dimethylphenyl)methanamine;C9H13N
+O(c1ccc(cc1)CC=C)C;Doce;1-methoxy-4-prop-2-enylbenzene;C10H12O
+O(Cc1ccccc1)Cc2ccccc2;Doce;phenylmethoxymethylbenzene;C14H14O
+O=C(C(=O)CCC)C;Doce;hexane-2,3-dione;C6H10O2
+O=C(C=Cc1ccccc1)C;Doce;4-phenylbut-3-en-2-one;C10H10O
+O=C(c1ccc(cc1C)C)C;Doce;1-(2,4-dimethylphenyl)ethanone;C10H12O
+O=C(c1ccc(OC)c(OC)c1)C;Doce;1-(3,4-dimethoxyphenyl)ethanone;C10H12O3
+O=C(c1ccccc1)C;Doce;1-phenylethanone;C8H8O
+O=C(CC)CCCC;Doce;heptan-3-one;C7H14O
+O=C(O)C=Cc1ccccc1;Doce;3-phenylprop-2-enoic acid;C9H8O2
+O=C(OC1C(=CCC(C(=C)C)C1)C)CC;Doce;(2-methyl-5-prop-1-en-2-ylcyclohex-2-en-1-yl) propanoate;C13H20O2
+O=C(OC1CC(C)CCC1C(C)C)C;Doce;(5-methyl-2-propan-2-ylcyclohexyl) acetate;C12H22O2
+O=C(OC1CC2CCC1(C)C2(C)(C))C;Doce;(1,7,7-trimethyl-2-bicyclo[2.2.1]heptanyl) acetate;C12H20O2
+O=C(OC1CCCCC1)CC;Doce;cyclohexyl propanoate;C9H16O2
+O=C(OC2C(C)(C)C1CCC2(C)(C1))C;Doce;(1,3,3-trimethyl-2-bicyclo[2.2.1]heptanyl) acetate;C12H20O2
+O=C(OCC(C)C)C;Doce;2-methylpropyl acetate;C6H12O2
+O=C(OCC(C)C)C=Cc1ccccc1;Doce;2-methylpropyl 3-phenylprop-2-enoate;C13H16O2
+O=C(OCC)C=Cc1ccccc1;Doce;ethyl 3-phenylprop-2-enoate;C11H12O2
+O=C(OCC)c1ccccc1(N);Doce;ethyl 2-aminobenzoate;C9H11NO2
+O=C(OCC)c1ccccc1(O);Doce;ethyl 2-hydroxybenzoate;C9H10O3
+O=C(OCC)C2OC2(c1ccccc1)(C);Doce;ethyl 3-methyl-3-phenyloxirane-2-carboxylate;C12H14O3
+O=C(OCC)CC(=O)C;Doce;ethyl 3-oxobutanoate;C6H10O3
+O=C(OCC=C)CCC1CCCCC1;Doce;prop-2-enyl 3-cyclohexylpropanoate;C12H20O2
+O=C(OCC=C)CCCCCCCC;Doce;prop-2-enyl nonanoate;C12H22O2
+O=C(OCc1ccccc1)c2ccccc2;Doce;benzyl benzoate;C14H12O2
+O=C(OCc1ccccc1)c2ccccc2(O);Doce;benzyl 2-hydroxybenzoate;C14H12O3
+O=C(OCc1ccccc1)CC;Doce;benzyl propanoate;C10H12O2
+O=C(OCc1ccccc1)Cc2ccccc2;Doce;benzyl 2-phenylacetate;C15H14O2
+O=C(OCCC(C)C)c1ccccc1;Doce;3-methylbutyl benzoate;C12H16O2
+O=C(OCCC(C)C)CCCCC;Doce;3-methylbutyl hexanoate;C11H22O2
+O=C(OCCC1CCCCC1)C;Doce;2-cyclohexylethyl acetate;C10H18O2
+O=C(OCCc1ccccc1)C=Cc2ccccc2;Doce;2-phenylethyl 3-phenylprop-2-enoate;C17H16O2
+O=C(OCCc1ccccc1)CCC;Doce;2-phenylethyl butanoate;C12H16O2
+O=C(OCCCC)C(O)C;Doce;butyl 2-hydroxypropanoate;C7H14O3
+O=C(OCCCCC)CCCCCCC;Doce;pentyl octanoate;C13H26O2
+O=C(OCCCCCC)CCC;Doce;hexyl butanoate;C10H20O2
+O=C(OCCCCCCC)CCC;Doce;heptyl butanoate;C11H22O2
+O=C1OC(CC)CC1;Doce;5-ethyloxolan-2-one;C6H10O2
+O=C1OC(CC1)CCC;Doce;5-propyloxolan-2-one;C7H12O2
+O=CC=CCCC;Doce;hex-2-enal;C6H10O
+O=Cc1ccc(OC)cc1;Doce;4-methoxybenzaldehyde;C8H8O2
+O=Cc1ccc(OCC)cc1;Doce;4-ethoxybenzaldehyde;C9H10O2
+O=Cc1occc1;Doce;furan-2-carbaldehyde;C5H4O2
+O=CCC(C)CCCC(O)(C)C;Doce;7-hydroxy-3,7-dimethyloctanal;C10H20O2
+O=COCC(C)C;Doce;2-methylpropyl formate;C5H10O2
+Oc1ccc(C=CC)cc1(OC);Doce;2-methoxy-4-prop-1-enylphenol;C10H12O2
+O=C(C)CCc1ccc(O)cc1;Doce, Frutado;4-(4-hydroxyphenyl)butan-2-one;C10H12O2
+OCCCCC;Doce, Frutado;pentan-1-ol;C5H12O
+O=C(O)CCc1ccccc1;Doce, Rosa;3-phenylpropanoic acid;C9H10O2
+O=C(OCC=C(C)CCC=C(C)C)C;Doce, Rosa;3,7-dimethylocta-2,6-dienyl acetate;C12H20O2
+O=C(OCC=C(C)CCC=C(C)C)CC;Doce, Rosa;3,7-dimethylocta-2,6-dienyl propanoate;C13H22O2
+O=C(OCC=C(C)CCC=C(C)C)CCC;Doce, Rosa;3,7-dimethylocta-2,6-dienyl butanoate;C14H24O2
+O=C(OCCC(C)CCC=C(C)C)CCC;Doce, Rosa;3,7-dimethyloct-6-enyl butanoate;C14H26O2
+O=C(OCCc1ccccc1)Cc2ccccc2;Doce, Rosa;2-phenylethyl 2-phenylacetate;C16H16O2
+O=CCC(C)CCC=C(C)C;Doce, Rosa;3,7-dimethyloct-6-enal;C10H18O
+O=COCC=C(C)CCC=C(C)C;Doce, Rosa;3,7-dimethylocta-2,6-dienyl formate;C11H18O2
+OCC=C(C)CCC=C(C)C;Doce, Rosa;3,7-dimethylocta-2,6-dien-1-ol;C10H18O
+OCCC(C)CCCC(C)C;Doce, Rosa;3,7-dimethyloctan-1-ol;C10H22O
+O=C(OCC)CCC;Frutado;ethyl butanoate;C6H12O2
+O=C1CCCC1;Frutado;cyclopentanone;C5H8O
+O=C1OC(CCC1)CCCCCC;Frutado;6-hexyloxan-2-one;C11H20O2
+OC(C)(C)CCCCC;Frutado;2-methylheptan-2-ol;C8H18O
+OC(C)(CCC)CCC;Frutado;4-methylheptan-4-ol;C8H18O
+OC(C)CC;Frutado;butan-2-ol;C4H10O
+OC(C)CCC;Frutado;pentan-2-ol;C5H12O
+OC(C)CCCC(C)C;Frutado;6-methylheptan-2-ol;C8H18O
+OC(C)CCCCCCC;Frutado;nonan-2-ol;C9H20O
+OC(CC)CC(C)CC;Frutado;5-methylheptan-3-ol;C8H18O
+OC(CC)CCC(C)C;Frutado;6-methylheptan-3-ol;C8H18O
+OC(CC)CCCC;Frutado;heptan-3-ol;C7H16O
+OC(CC)CCCCC;Frutado;octan-3-ol;C8H18O
+OC(CC)CCCCCC;Frutado;nonan-3-ol;C9H20O
+OC(CC)CCCCCCC;Frutado;decan-3-ol;C10H22O
+OC(CC)CCCCCCCC;Frutado;undecan-3-ol;C11H24O
+OC(CC)CCCCCCCCC;Frutado;dodecan-3-ol;C12H26O
+OC(CCC)CCC;Frutado;heptan-4-ol;C7H16O
+OC(CCC)CCCC;Frutado;octan-4-ol;C8H18O
+OC(CCC)CCCCCCC;Frutado;undecan-4-ol;C11H24O
+OC(CCCC)CCCC;Frutado;nonan-5-ol;C9H20O
+OC(CCCC)CCCCC;Frutado;decan-5-ol;C10H22O
+OCC;Frutado;ethanol;C2H6O
+OCC(C)(C)CC(C)C;Frutado;2,2,4-trimethylpentan-1-ol;C8H18O
+OCC(C)(C)CCC;Frutado;2,2-dimethylpentan-1-ol;C7H16O
+OCC(C)CC;Frutado;2-methylbutan-1-ol;C5H12O
+OCC(C)CCC;Frutado;2-methylpentan-1-ol;C6H14O
+OCCC;Frutado;propan-1-ol;C3H8O
+OCCC(C)C;Frutado;3-methylbutan-1-ol;C5H12O
+OCCC(C)CC;Frutado;3-methylpentan-1-ol;C6H14O
+OCCCC;Frutado;butan-1-ol;C4H10O
+OCCCC(C)C;Frutado;4-methylpentan-1-ol;C6H14O
+OCCCCC(C)C;Frutado;5-methylhexan-1-ol;C7H16O
+OCCCCCC;Frutado;hexan-1-ol;C6H14O
+OCCCCCCC;Frutado;heptan-1-ol;C7H16O
+OCCCCCCCC;Frutado;octan-1-ol;C8H18O
+OCCCCCCCCC;Frutado, Rosa;nonan-1-ol;C9H20O
+O=C(O)Cc1ccccc1;Mel;2-phenylacetic acid;C8H8O2
+O=C(OC)CCCCCCCCCCCCC;Mel;methyl tetradecanoate;C15H30O2
+O=C(OCC(C)C)Cc1ccccc1;Mel;2-methylpropyl 2-phenylacetate;C12H16O2
+O=C(OCC)Cc1ccccc1;Mel;ethyl 2-phenylacetate;C10H12O2
+O=C(OCC=C(C)CCC=C(C)C)Cc1ccccc1;Mel;3,7-dimethylocta-2,6-dienyl 2-phenylacetate;C18H24O2
+O=C(OCC=C)Cc1ccccc1;Mel;prop-2-enyl 2-phenylacetate;C11H12O2
+O=C(OCC=C)COc1ccccc1;Mel;prop-2-enyl 2-phenoxyacetate;C11H12O3
+O=C(OCCC(C)C)C(C)C;Mel;3-methylbutyl 2-methylpropanoate;C9H18O2
+O=C(OCCC(C)CCC=C(C)C)CCCC;Mel;3,7-dimethyloct-6-enyl pentanoate;C15H28O2
+O=C(OCCC)Cc1ccccc1;Mel;propyl 2-phenylacetate;C11H14O2
+O=C(OCCc1ccccc1)C;Mel;2-phenylethyl acetate;C10H12O2
+O=C(OCCc1ccccc1)c2ccccc2(N);Mel;2-phenylethyl 2-aminobenzoate;C15H15NO2
+O=C(OCCOc1ccccc1)C(C)C;Mel;2-phenoxyethyl 2-methylpropanoate;C12H16O3
+O=CC(C)CCCCCCCCC;Mel;2-methylundecanal;C12H24O
+OCCCCCCCCCCCC;Mel;dodecan-1-ol;C12H26O
+O=CC1=CCC2CC1C2(C)(C);Mel, Canfora;6,6-dimethylbicyclo[3.1.1]hept-2-ene-2-carbaldehyde;C10H14O
+O=C(OC(C)C)Cc1ccccc1;Mel, Rosa;propan-2-yl 2-phenylacetate;C11H14O2
+O=C(OCCc1ccccc1)c2ccccc2;Mel, Rosa;2-phenylethyl benzoate;C15H14O2
+O=C(OCCc1ccccc1)c2ccccc2(O);Mel, Rosa;2-phenylethyl 2-hydroxybenzoate;C15H14O3
+O=C(OCCCC)Cc1ccccc1;Mel, Rosa;butyl 2-phenylacetate;C12H16O2
+O=C(OCCCCCCCC)CC(C)C;Mel, Rosa;octyl 3-methylbutanoate;C13H26O2
+OCCc1ccccc1;Mel, Rosa;2-phenylethanol;C8H10O
+O=C(C)CCCCCCCCC;Rosa;undecan-2-one;C11H22O
+O=C(OCC(C)C)c1ccccc1;Rosa;2-methylpropyl benzoate;C11H14O2
+O=C(OCC=C(C)CCC=C(C)C)C(C)C;Rosa;3,7-dimethylocta-2,6-dienyl 2-methylpropanoate;C14H24O2
+O=C(OCC=Cc1ccccc1)CC(C)C;Rosa;3-phenylprop-2-enyl 3-methylbutanoate;C14H18O2
+O=C(OCCC(C)CCC=C(C)C)C;Rosa;3,7-dimethyloct-6-enyl acetate;C12H22O2
+O=C(OCCC(C)CCC=C(C)C)C(=CC)C;Rosa;3,7-dimethyloct-6-enyl 2-methylbut-2-enoate;C15H26O2
+O=C(OCCC(C)CCC=C(C)C)C(C)C;Rosa;3,7-dimethyloct-6-enyl 2-methylpropanoate;C14H26O2
+O=C(OCCC(C)CCC=C(C)C)CC;Rosa;3,7-dimethyloct-6-enyl propanoate;C13H24O2
+O=C(OCCc1ccccc1)C(=CC)C;Rosa;2-phenylethyl 2-methylbut-2-enoate;C13H16O2
+O=C(OCCc1ccccc1)C(C)C;Rosa;2-phenylethyl 2-methylpropanoate;C12H16O2
+O=C(OCCc1ccccc1)CC;Rosa;2-phenylethyl propanoate;C11H14O2
+O=C(OCCc1ccccc1)CC(C)C;Rosa;2-phenylethyl 3-methylbutanoate;C13H18O2
+O=C(OCCc1ccccc1)CCCCC;Rosa;2-phenylethyl hexanoate;C14H20O2
+O=C(OCCCCCCCCCCCC)C;Rosa;dodecyl acetate;C14H28O2
+O=CCCCCCCCC;Rosa;nonanal;C9H18O
+O=CCCCCCCCCC=C;Rosa;undec-10-enal;C11H20O
+O=CCCCCCCCCCC;Rosa;undecanal;C11H22O
+O=COCCc1ccccc1;Rosa;2-phenylethyl formate;C9H10O2
+O=COCCCCCCCC;Rosa;octyl formate;C9H18O2
+OC(C=C)(C)CCC=C(C)CCC=C(C)C;Rosa;3,7,11-trimethyldodeca-1,6,10-trien-3-ol;C15H26O
+OCCC(C)CCC=C(C)C;Rosa;3,7-dimethyloct-6-en-1-ol;C10H20O
+OCCCCCc1ccccc1;Rosa;5-phenylpentan-1-ol;C11H16O
+OCCCCCCCCCC;Rosa;decan-1-ol;C10H22O

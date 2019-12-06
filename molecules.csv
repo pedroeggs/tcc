@@ -1,0 +1,234 @@
+O(c1ccc(cc1)C=CC)C;Anis
+O(c1ccc(cc1)CCC)C;Anis
+O=C(OC)C=CC=CC;Anis
+O=C(OC)c1ccc(OC)cc1;Anis
+O=C(OCC)C;Anis
+O=C1C(=O)C(C)C(C)C1;Anis
+O=C1OC(C)CC1;Anis
+Oc1ccc(cc1(OC))CCC;Anis
+Oc1ccc(cc1(OC))CO;Anis
+O=C(C=CC1=C(C)CCCC1(C)C)C;Bálsamo
+O=C(O)C(=CC)C;Bálsamo
+O=C(O)c1ccccc1;Bálsamo
+O=C(Oc1ccccc1)c2ccccc2(O);Bálsamo
+O=C(OCC)C(C(=O)C)Cc1ccccc1;Bálsamo
+O=C(OCC=C)C=Cc1ccccc1;Bálsamo
+O=C(OCC=Cc1ccccc1)C(C)C;Bálsamo
+O=C(OCC=Cc1ccccc1)CC;Bálsamo
+O=C(OCC=Cc1ccccc1)CCC;Bálsamo
+O=C(OCCC=CCC)c1ccccc1(O);Bálsamo
+O=C(OCCCCCC)c1ccccc1;Bálsamo
+O=Cc1ccc(OC(=O)C)c(OC)c1;Bálsamo
+O=Cc1ccc2OCOc2(c1);Bálsamo
+O=COCC=Cc1ccccc1;Bálsamo
+OCC=C(C)CCCC(C)CCCC(C)CCCC(C)C;Bálsamo
+OCC=Cc1ccccc1;Bálsamo
+OCCCc1ccccc1;Bálsamo
+O(c1ccccc1(OC))C;Baunilha
+O=C(C)Cc1ccc(OC)cc1;Baunilha
+O=C(C)CCc1ccc(O)c(OC)c1;Baunilha
+O=C(c1ccc(O)c(OC)c1)C;Baunilha
+O=C(c1ccccc1)C(O)c2ccccc2;Baunilha
+O=C(OCc1ccc(OC)cc1)C;Baunilha
+O=C(OCc1ccc(OC)cc1)CC;Baunilha
+O=CC=Cc1ccccc1;Baunilha
+O=Cc1ccc(O)c(OC)c1;Baunilha
+O=Cc1ccc(O)c(OCC)c1;Baunilha
+O=Cc1ccc(OC)c(OC)c1;Baunilha
+Oc1ccc(C=C)cc1;Baunilha
+Oc1ccc(cc1(OC))C;Baunilha
+OCc1ccc(OC)cc1;Baunilha
+C=C2C1CCC(C1)C2(C)C;Cânfora
+O(c1ccc(cc1)C)C;Cânfora
+O=C(c1ccccc1)CCC;Cânfora
+O=C1C(=C(C)C)CCC(C)C1;Cânfora
+O=C1CC2CCC1(C)C2(C)(C);Cânfora
+O=Cc1ccc(C)s1;Cânfora
+O1C(C)(C)C2CCC1(C)CC2;Cânfora
+O1C2(C)(CCC1(CC2)C(C)C);Cânfora
+OC(C(C)C)C(C)(C)C;Cânfora
+OC(C(C)C)C(C)C;Cânfora
+OC(C(C)C)C(C)CC;Cânfora
+OC(C)(C)C;Cânfora
+OC(C)(C)C(C)C;Cânfora
+OC(C)(C)C(C)CC;Cânfora
+OC(C)(C)C(C)CCC;Cânfora
+OC(C)(C)CC;Cânfora
+OC(C)(C)CC(C)C;Cânfora
+OC(C)(C)CCC;Cânfora
+OC(C)(CC)C(C)C;Cânfora
+OC(C)(CC)CC;Cânfora
+OC(C)(CC)CC(C)C;Cânfora
+OC(C)(CC)CCC;Cânfora
+OC(C)(CCC)C(C)C;Cânfora
+OC(C)C(C)(C)C;Cânfora
+OC(C)C(C)C;Cânfora
+OC(C)C(C)CC;Cânfora
+OC(C)C(C)CCC;Cânfora
+OC(C)C(CC)CC;Cânfora
+OC(C)CC(C)(C)C;Cânfora
+OC(C)CC(C)C;Cânfora
+OC(CC(C)C)C(C)C;Cânfora
+OC(CC)(CC)CC;Cânfora
+OC(CC)C(C)(C)C;Cânfora
+OC(CC)C(C)C;Cânfora
+OC(CC)C(C)CC;Cânfora
+OC(CC)C(C)CCC;Cânfora
+OC(CC)C(CC)CC;Cânfora
+OC(CC)CC;Cânfora
+OC(CC)CC(C)C;Cânfora
+OC(CC)CCC;Cânfora
+OC(CCC)C(C)(C)C;Cânfora
+OC(CCC)C(C)C;Cânfora
+OC(CCC)C(C)CC;Cânfora
+OC(CCC)CC(C)C;Cânfora
+OC1CC2CCC1(C)C2(C)(C);Cânfora
+OCC(C)(C)C;Cânfora
+OCC(C)(C)CC;Cânfora
+OCC(C)C;Cânfora
+OCC(C)C(C)CC;Cânfora
+OCC(CC)CC;Cânfora
+OCCC(C)(C)C;Cânfora
+OC(C)C(C)C(C)CC;Cânfora, Frutado
+OC(CCCC)C(C)C;Cânfora, Frutado
+OCC(CC)CCCC;Cânfora, Rosa
+NCc1ccc(cc1C)C;Doce
+O(c1ccc(cc1)CC=C)C;Doce
+O(Cc1ccccc1)Cc2ccccc2;Doce
+O=C(C(=O)CCC)C;Doce
+O=C(C=Cc1ccccc1)C;Doce
+O=C(c1ccc(cc1C)C)C;Doce
+O=C(c1ccc(OC)c(OC)c1)C;Doce
+O=C(c1ccccc1)C;Doce
+O=C(CC)CCCC;Doce
+O=C(O)C=Cc1ccccc1;Doce
+O=C(OC1C(=CCC(C(=C)C)C1)C)CC;Doce
+O=C(OC1CC(C)CCC1C(C)C)C;Doce
+O=C(OC1CC2CCC1(C)C2(C)(C))C;Doce
+O=C(OC1CCCCC1)CC;Doce
+O=C(OC2C(C)(C)C1CCC2(C)(C1))C;Doce
+O=C(OCC(C)C)C;Doce
+O=C(OCC(C)C)C=Cc1ccccc1;Doce
+O=C(OCC)C=Cc1ccccc1;Doce
+O=C(OCC)c1ccccc1(N);Doce
+O=C(OCC)c1ccccc1(O);Doce
+O=C(OCC)C2OC2(c1ccccc1)(C);Doce
+O=C(OCC)CC(=O)C;Doce
+O=C(OCC=C)CCC1CCCCC1;Doce
+O=C(OCC=C)CCCCCCCC;Doce
+O=C(OCc1ccccc1)c2ccccc2;Doce
+O=C(OCc1ccccc1)c2ccccc2(O);Doce
+O=C(OCc1ccccc1)CC;Doce
+O=C(OCc1ccccc1)Cc2ccccc2;Doce
+O=C(OCCC(C)C)c1ccccc1;Doce
+O=C(OCCC(C)C)CCCCC;Doce
+O=C(OCCC1CCCCC1)C;Doce
+O=C(OCCc1ccccc1)C=Cc2ccccc2;Doce
+O=C(OCCc1ccccc1)CCC;Doce
+O=C(OCCCC)C(O)C;Doce
+O=C(OCCCCC)CCCCCCC;Doce
+O=C(OCCCCCC)CCC;Doce
+O=C(OCCCCCCC)CCC;Doce
+O=C1OC(CC)CC1;Doce
+O=C1OC(CC1)CCC;Doce
+O=CC=CCCC;Doce
+O=Cc1ccc(OC)cc1;Doce
+O=Cc1ccc(OCC)cc1;Doce
+O=Cc1occc1;Doce
+O=CCC(C)CCCC(O)(C)C;Doce
+O=COCC(C)C;Doce
+Oc1ccc(C=CC)cc1(OC);Doce
+O=C(C)CCc1ccc(O)cc1;Doce, Frutado
+OCCCCC;Doce, Frutado
+O=C(O)CCc1ccccc1;Doce, Rosa
+O=C(OCC=C(C)CCC=C(C)C)C;Doce, Rosa
+O=C(OCC=C(C)CCC=C(C)C)CC;Doce, Rosa
+O=C(OCC=C(C)CCC=C(C)C)CCC;Doce, Rosa
+O=C(OCCC(C)CCC=C(C)C)CCC;Doce, Rosa
+O=C(OCCc1ccccc1)Cc2ccccc2;Doce, Rosa
+O=CCC(C)CCC=C(C)C;Doce, Rosa
+O=COCC=C(C)CCC=C(C)C;Doce, Rosa
+OCC=C(C)CCC=C(C)C;Doce, Rosa
+OCCC(C)CCCC(C)C;Doce, Rosa
+O=C(OCC)CCC;Frutado
+O=C1CCCC1;Frutado
+O=C1OC(CCC1)CCCCCC;Frutado
+OC(C)(C)CCCCC;Frutado
+OC(C)(CCC)CCC;Frutado
+OC(C)CC;Frutado
+OC(C)CCC;Frutado
+OC(C)CCCC(C)C;Frutado
+OC(C)CCCCCCC;Frutado
+OC(CC)CC(C)CC;Frutado
+OC(CC)CCC(C)C;Frutado
+OC(CC)CCCC;Frutado
+OC(CC)CCCCC;Frutado
+OC(CC)CCCCCC;Frutado
+OC(CC)CCCCCCC;Frutado
+OC(CC)CCCCCCCC;Frutado
+OC(CC)CCCCCCCCC;Frutado
+OC(CCC)CCC;Frutado
+OC(CCC)CCCC;Frutado
+OC(CCC)CCCCCCC;Frutado
+OC(CCCC)CCCC;Frutado
+OC(CCCC)CCCCC;Frutado
+OCC;Frutado
+OCC(C)(C)CC(C)C;Frutado
+OCC(C)(C)CCC;Frutado
+OCC(C)CC;Frutado
+OCC(C)CCC;Frutado
+OCCC;Frutado
+OCCC(C)C;Frutado
+OCCC(C)CC;Frutado
+OCCCC;Frutado
+OCCCC(C)C;Frutado
+OCCCCC(C)C;Frutado
+OCCCCCC;Frutado
+OCCCCCCC;Frutado
+OCCCCCCCC;Frutado
+OCCCCCCCCC;Frutado, Rosa
+O=C(O)Cc1ccccc1;Mel
+O=C(OC)CCCCCCCCCCCCC;Mel
+O=C(OCC(C)C)Cc1ccccc1;Mel
+O=C(OCC)Cc1ccccc1;Mel
+O=C(OCC=C(C)CCC=C(C)C)Cc1ccccc1;Mel
+O=C(OCC=C)Cc1ccccc1;Mel
+O=C(OCC=C)COc1ccccc1;Mel
+O=C(OCCC(C)C)C(C)C;Mel
+O=C(OCCC(C)CCC=C(C)C)CCCC;Mel
+O=C(OCCC)Cc1ccccc1;Mel
+O=C(OCCc1ccccc1)C;Mel
+O=C(OCCc1ccccc1)c2ccccc2(N);Mel
+O=C(OCCOc1ccccc1)C(C)C;Mel
+O=CC(C)CCCCCCCCC;Mel
+OCCCCCCCCCCCC;Mel
+O=CC1=CCC2CC1C2(C)(C);Mel, Cânfora
+O=C(OC(C)C)Cc1ccccc1;Mel, Rosa
+O=C(OCCc1ccccc1)c2ccccc2;Mel, Rosa
+O=C(OCCc1ccccc1)c2ccccc2(O);Mel, Rosa
+O=C(OCCCC)Cc1ccccc1;Mel, Rosa
+O=C(OCCCCCCCC)CC(C)C;Mel, Rosa
+OCCc1ccccc1;Mel, Rosa
+O=C(C)CCCCCCCCC;Rosa
+O=C(OCC(C)C)c1ccccc1;Rosa
+O=C(OCC=C(C)CCC=C(C)C)C(C)C;Rosa
+O=C(OCC=Cc1ccccc1)CC(C)C;Rosa
+O=C(OCCC(C)CCC=C(C)C)C;Rosa
+O=C(OCCC(C)CCC=C(C)C)C(=CC)C;Rosa
+O=C(OCCC(C)CCC=C(C)C)C(C)C;Rosa
+O=C(OCCC(C)CCC=C(C)C)CC;Rosa
+O=C(OCCc1ccccc1)C(=CC)C;Rosa
+O=C(OCCc1ccccc1)C(C)C;Rosa
+O=C(OCCc1ccccc1)CC;Rosa
+O=C(OCCc1ccccc1)CC(C)C;Rosa
+O=C(OCCc1ccccc1)CCCCC;Rosa
+O=C(OCCCCCCCCCCCC)C;Rosa
+O=CCCCCCCCC;Rosa
+O=CCCCCCCCCC=C;Rosa
+O=CCCCCCCCCCC;Rosa
+O=COCCc1ccccc1;Rosa
+O=COCCCCCCCC;Rosa
+OC(C=C)(C)CCC=C(C)CCC=C(C)C;Rosa
+OCCC(C)CCC=C(C)C;Rosa
+OCCCCCc1ccccc1;Rosa
+OCCCCCCCCCC;Rosa
