@@ -47,6 +47,20 @@ class Window:
         self.search_formula_btn = tk.Button(master=self.search_frame, text='Pesquisar',
                                               command=lambda: self.search_compounds('formula'))
         self.search_formula_btn.place(x=390, y=27, height=28)
+        
+        # pesquisa por odor
+        
+        self.odour_search_frame_title = tk.Label(master=self.search_frame, text='Pesquisa por odor: ')
+        self.odour_search_frame_title.place(x=605,y=5)
+        
+        self.odour_var_entry = tk.StringVar()
+        self.odour_var_entry.set('Oi')
+        self.odour_entry = tk.Entry(master=self.search_frame, textvariable=self.odour_var_entry, fg='grey')
+        self.odour_entry.place(x=607,y=27, relwidth=0.1, height=28)
+
+        self.search_odour_btn = tk.Button(master=self.search_frame, text='Pesquisar',
+                                              command=lambda: self.search_compounds('odour'))
+        self.search_odour_btn.place(x=690, y=27, height=28)
     
         # Frames inferiores (de output)
         # Esquerda
@@ -102,6 +116,15 @@ class Window:
             results = query.get_data(column_filter, search_parameter)
             # 'solta' o botao
             self.search_formula_btn.configure(relief='raised')
+            
+        elif column_filter == 'odour':
+            
+            self.search_odour_btn.configure(relief='sunken')
+            
+            search_parameter = self.odour_var_entry.get()
+            results = query.get_data(column_filter, search_parameter)
+            # 'solta' o botao
+            self.search_odour_btn.configure(relief='raised')
         
         str_out = ''
         for r in results:
@@ -110,9 +133,9 @@ class Window:
             image = Image.open('C:\\TCC\\images\\' + r[0] + '.png')
             photo = ImageTk.PhotoImage(image)
             
-            self.output_frame_left_text.image_create(tk.END, image = photo)
-
-            self.output_frame_left_text.insert(tk.END, '\n')
+            # descomentar para ter fotos no frame da esquerda. Tá bugado pra mais de uma foto
+            # self.output_frame_left_text.image_create(tk.END, image = photo)
+            #self.output_frame_left_text.insert(tk.END, '\n')
             self.output_frame_left_text.insert(tk.END, str_out)
             
             self.output_frame_mid_text['image'] = photo

@@ -116,8 +116,8 @@ def get_data(column_filter, search_parameter):
         c = conn.cursor()
         # 
         c.execute("""
-        SELECT * FROM molecule_table  WHERE """ + column_filter +  """ = '""" +
-        search_parameter + """'       
+        SELECT * FROM molecule_table  WHERE """ + column_filter +  """ LIKE '%""" +
+        search_parameter + """%'       
         """)
         
         for row in c.fetchall():
