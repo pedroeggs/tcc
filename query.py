@@ -106,9 +106,29 @@ def update_db():
         
     except Error as e:
         print(e)
+
+def get_data(column_filter, search_parameter):
     
-create_db()
-update_db()
+    database = r"C:/TCC/camd_db.db"   
+    conn = create_connection(database)
+    result_list = []
+    try:
+        c = conn.cursor()
+        # 
+        c.execute("""
+        SELECT * FROM molecule_table  WHERE """ + column_filter +  """ = '""" +
+        search_parameter + """'       
+        """)
+        
+        for row in c.fetchall():
+            result_list.append(row)
+        
+        conn.close()
+        return result_list
+        
+    except Error as e:
+        print(e)
+        
 
 
 
