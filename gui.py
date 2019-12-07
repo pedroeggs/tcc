@@ -26,7 +26,7 @@ class Window:
         self.search_frame_title.place(x=5,y=5)
         
         self.compound_var_entry = tk.StringVar()
-        self.compound_var_entry.set('Oi')
+        self.compound_var_entry.set('Pesquisar')
         self.compound_entry = tk.Entry(master=self.search_frame, textvariable=self.compound_var_entry, fg='grey')
         self.compound_entry.place(x=7,y=27, relwidth=0.1, height=28)
 
@@ -40,7 +40,7 @@ class Window:
         self.formula_search_frame_title.place(x=305,y=5)
         
         self.formula_var_entry = tk.StringVar()
-        self.formula_var_entry.set('Oi')
+        self.formula_var_entry.set('Pesquisar')
         self.formula_entry = tk.Entry(master=self.search_frame, textvariable=self.formula_var_entry, fg='grey')
         self.formula_entry.place(x=307,y=27, relwidth=0.1, height=28)
 
@@ -54,7 +54,7 @@ class Window:
         self.odour_search_frame_title.place(x=605,y=5)
         
         self.odour_var_entry = tk.StringVar()
-        self.odour_var_entry.set('Oi')
+        self.odour_var_entry.set('Pesquisar')
         self.odour_entry = tk.Entry(master=self.search_frame, textvariable=self.odour_var_entry, fg='grey')
         self.odour_entry.place(x=607,y=27, relwidth=0.1, height=28)
 
@@ -66,7 +66,7 @@ class Window:
         # Esquerda
         
         self.output_frame_left_var_entry = tk.StringVar()
-        self.output_frame_left_var_entry.set('Oi')
+        self.output_frame_left_var_entry.set('Pesquisar')
         
         self.output_frame_left = tk.Frame(highlightbackground='black', highlightcolor='black',
                                           highlightthickness=1, bg='white')
@@ -129,13 +129,17 @@ class Window:
         str_out = ''
         for r in results:
             
-            str_out += 'SMILES: '+ r[0] + '\nOdor: ' + r[1] + '\nNome do composto: ' + r[2] + '\nFórmula: ' + r[3] + '\n---------------------\n\n'
+            str_out += 'SMILES: '+ r[0] + '\nOdor: ' + r[1] + '\nNome do composto: ' + r[2] 
+            str_out += '\nFórmula: ' + r[3] + '\nPonto de Ebulição: ' + r[4]
+            str_out += '\nPonto de Fusão: ' + r[5] + '\nPonto de Flash: ' + r[6]
+            str_out += '\nSolubilidade: ' + r[7] + '\nPressão de Vapor' + r[8] + '\nDensidade: ' + r[9]
+            str_out += '\nDensidade de Vapor: ' + r[10] + '\npKa' + r[11] + '\n--------------------\n\n'
             image = Image.open('C:\\TCC\\images\\' + r[0] + '.png')
             photo = ImageTk.PhotoImage(image)
             
             # descomentar para ter fotos no frame da esquerda. Tá bugado pra mais de uma foto
             # self.output_frame_left_text.image_create(tk.END, image = photo)
-            #self.output_frame_left_text.insert(tk.END, '\n')
+            # self.output_frame_left_text.insert(tk.END, '\n')
             self.output_frame_left_text.insert(tk.END, str_out)
             
             self.output_frame_mid_text['image'] = photo
@@ -152,4 +156,4 @@ root = tk.Tk()
 root.geometry('800x600+100+100')
 root.title('TCC v0.0')
 Window(root)
-root.mainloop()
+root.mainloop()             

@@ -1,8 +1,12 @@
 # -*- coding: utf-8 -*-
 """
-Spyder Editor
+Autores:
+    
+    Arthur Adabo de Camargo, nº USP: 9834128
+    Pedro Alvares Eggers, nº USP: 9833440
 
-Este é um arquivo de script temporário.
+Fonte: https://www.sqlitetutorial.net/sqlite-python/create-tables/
+
 """
 
 import sqlite3
@@ -33,8 +37,6 @@ def create_table(conn, create_table_sql):
     :param create_table_sql: a CREATE TABLE statement
     :return:
         
-    Fonte: https://www.sqlitetutorial.net/sqlite-python/create-tables/
-        
     """
     try:
         c = conn.cursor()
@@ -51,13 +53,21 @@ def create_db():
     '''
     
     database = r"C:/TCC/camd_db.db"
- 
+
     sql_create_projects_table = """ CREATE TABLE IF NOT EXISTS molecule_table (
                                         smiles text NOT NULL,
                                         odour text NOT NULL,
                                         compound_name text PRIMARY KEY,
-                                        formula text NOT NULL
-                                    ); """  # adicionar dps compound_name text NOT NULL
+                                        formula text NOT NULL,
+                                        boiling_point text NOT NULL,
+                                        melting_point text NOT NULL,
+                                        flash_point text NOT NULL,
+                                        solubility text NOT NULL,
+                                        vapor_pressure text NOT NULL,
+                                        density text NOT NULL,
+                                        vapor_density text NOT NULL,
+                                        pka text NOT NULL
+                                    ); """
  
     # create a database connection
     conn = create_connection(database)
@@ -92,10 +102,11 @@ def update_db():
     
     try:
         c = conn.cursor()
-        # inserir a tabela dos compostos no banco de dados
+        
         c.executemany("""
-        INSERT INTO molecule_table (smiles, odour, compound_name, formula)
-        VALUES (?,?,?,?)
+        INSERT INTO molecule_table (smiles, odour, compound_name, formula, boiling_point, melting_point, 
+        flash_point, solubility, vapor_pressure, density, vapor_density, pka)
+        VALUES (?,?,?,?,?,?,?,?,?,?,?,?)
         """, values_list)
         
         conn.commit()
@@ -114,7 +125,7 @@ def get_data(column_filter, search_parameter):
     result_list = []
     try:
         c = conn.cursor()
-        # 
+        # match parcial no banco de dados
         c.execute("""
         SELECT * FROM molecule_table  WHERE """ + column_filter +  """ LIKE '%""" +
         search_parameter + """%'       
@@ -129,6 +140,4 @@ def get_data(column_filter, search_parameter):
     except Error as e:
         print(e)
         
-
-
 
