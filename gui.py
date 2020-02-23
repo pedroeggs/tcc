@@ -6,8 +6,10 @@ Fonte: https://www.dcc.ufrj.br/~fabiom/mab225/tutorialtkinter.pdf
 
 import tkinter as tk
 import query 
-import os
 from PIL import Image, ImageTk
+import os
+
+CURR_PATH = os.path.dirname(os.path.abspath(__file__))
 
 class Window:
     
@@ -49,9 +51,9 @@ class Window:
                                               command=lambda: self.search_compounds('formula'))
         self.search_formula_btn.place(x=390, y=27, height=28)
         
-        # pesquisa por odor
+        # pesquisa por aroma
         
-        self.odour_search_frame_title = tk.Label(master=self.search_frame, text='Pesquisa por odor: ')
+        self.odour_search_frame_title = tk.Label(master=self.search_frame, text='Pesquisa por aroma: ')
         self.odour_search_frame_title.place(x=605,y=5)
         
         self.odour_var_entry = tk.StringVar()
@@ -130,13 +132,17 @@ class Window:
         str_out = ''
         for r in results:
             
-            str_out += 'SMILES: '+ r[0] + '\nOdor: ' + r[1] + '\nNome do composto: ' + r[2] + '\nFórmula: ' + r[3] + '\n---------------------\n\n'
-            image = Image.open(os.path.join(os.path.join(os.path.dirname(__file__), 'images'), r[0] + '.png'))
+            str_out += 'SMILES: '+ r[0] + '\nAroma: ' + r[1] + '\nNome do composto: ' + r[2]
+            str_out += '\n\nFórmula: ' + r[3] + '\n\nPonto de Ebulição: ' + r[4]
+            str_out += '\n\nPonto de Fusão: ' + r[5] + '\n\nPonto de Flash: ' + r[6]
+            str_out += '\n\nSolubilidade: ' + r[7] + '\n\nPressão de Vapor' + r[8] + '\n\nDensidade: ' + r[9]
+            str_out += '\n\nDensidade de Vapor: ' + r[10] + '\n\npKa: ' + r[11] + '\n--------------------\n\n'
+            image = Image.open(os.path.join(CURR_PATH,'images',r[0],'.png'))
             photo = ImageTk.PhotoImage(image)
             
             # descomentar para ter fotos no frame da esquerda. Tá bugado pra mais de uma foto
             # self.output_frame_left_text.image_create(tk.END, image = photo)
-            #self.output_frame_left_text.insert(tk.END, '\n')
+            # self.output_frame_left_text.insert(tk.END, '\n')
             self.output_frame_left_text.insert(tk.END, str_out)
             
             self.output_frame_mid_text['image'] = photo
@@ -153,4 +159,4 @@ root = tk.Tk()
 root.geometry('800x600+100+100')
 root.title('TCC v0.0')
 Window(root)
-root.mainloop()
+root.mainloop()             

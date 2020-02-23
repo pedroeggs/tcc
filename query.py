@@ -1,15 +1,21 @@
 # -*- coding: utf-8 -*-
 """
-Spyder Editor
+Autores:
+    
+    Arthur Adabo de Camargo, nº USP: 9834128
+    Pedro Alvares Eggers, nº USP: 9833440
 
-Este é um arquivo de script temporário.
+Fonte: https://www.sqlitetutorial.net/sqlite-python/create-tables/
+
 """
 
 import sqlite3
 from sqlite3 import Error
 import csv
 import os
- 
+
+CURR_PATH = os.path.dirname(os.path.abspath(__file__))
+
 def create_connection(db_file):
     """ create a database connection to the SQLite database
         specified by db_file
@@ -34,8 +40,6 @@ def create_table(conn, create_table_sql):
     :param create_table_sql: a CREATE TABLE statement
     :return:
         
-    Fonte: https://www.sqlitetutorial.net/sqlite-python/create-tables/
-        
     """
     try:
         c = conn.cursor()
@@ -51,14 +55,22 @@ def create_db():
     
     '''
     
-    database = r"C:/TCC/camd_db.db"
- 
+    database = os.path.join(CURR_PATH, "camd_db.db")
+
     sql_create_projects_table = """ CREATE TABLE IF NOT EXISTS molecule_table (
                                         smiles text NOT NULL,
                                         odour text NOT NULL,
                                         compound_name text PRIMARY KEY,
-                                        formula text NOT NULL
-                                    ); """  # adicionar dps compound_name text NOT NULL
+                                        formula text NOT NULL,
+                                        boiling_point text NOT NULL,
+                                        melting_point text NOT NULL,
+                                        flash_point text NOT NULL,
+                                        solubility text NOT NULL,
+                                        vapor_pressure text NOT NULL,
+                                        density text NOT NULL,
+                                        vapor_density text NOT NULL,
+                                        pka text NOT NULL
+                                    ); """
  
     # create a database connection
     conn = create_connection(database)
@@ -77,7 +89,7 @@ def read_molecule_csv():
     Transforma um arquivo .csv em lista
     '''
     
-    with open(r'C:\TCC\to_database.csv', 'r') as f:
+    with open(os.path.join(CURR_PATH, 'to_database.csv'), 'r') as f:
         reader = csv.reader(f, delimiter=';')
         table_list = list(map(tuple, reader))
         
@@ -88,15 +100,16 @@ def update_db():
     # Lê o arquivo com os compostos
     values_list = read_molecule_csv()    
 
-    database = r"C:/TCC/camd_db.db"   
+    database = os.path.join(CURR_PATH, "camd_db.db")   
     conn = create_connection(database)
     
     try:
         c = conn.cursor()
-        # inserir a tabela dos compostos no banco de dados
+        
         c.executemany("""
-        INSERT INTO molecule_table (smiles, odour, compound_name, formula)
-        VALUES (?,?,?,?)
+        INSERT INTO molecule_table (smiles, odour, compound_name, formula, boiling_point, melting_point, 
+        flash_point, solubility, vapor_pressure, density, vapor_density, pka)
+        VALUES (?,?,?,?,?,?,?,?,?,?,?,?)
         """, values_list)
         
         conn.commit()
@@ -110,12 +123,12 @@ def update_db():
 
 def get_data(column_filter, search_parameter):
     
-    database = os.path.join(os.path.dirname(__file__), 'camd_db.db')
+    database = os.path.join(CURR_PATH, "camd_db.db")   
     conn = create_connection(database)
     result_list = []
     try:
         c = conn.cursor()
-        # 
+        # match parcial no banco de dados
         c.execute("""
         SELECT * FROM molecule_table  WHERE """ + column_filter +  """ LIKE '%""" +
         search_parameter + """%'       
@@ -129,7 +142,6 @@ def get_data(column_filter, search_parameter):
         
     except Error as e:
         print(e)
-        
-
-
-
+  
+create_db()      
+update_db()
