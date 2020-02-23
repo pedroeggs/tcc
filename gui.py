@@ -6,6 +6,7 @@ Fonte: https://www.dcc.ufrj.br/~fabiom/mab225/tutorialtkinter.pdf
 
 import tkinter as tk
 import query 
+import os
 from PIL import Image, ImageTk
 
 class Window:
@@ -129,17 +130,13 @@ class Window:
         str_out = ''
         for r in results:
             
-            str_out += 'SMILES: '+ r[0] + '\nOdor: ' + r[1] + '\nNome do composto: ' + r[2] 
-            str_out += '\nFórmula: ' + r[3] + '\nPonto de Ebulição: ' + r[4]
-            str_out += '\nPonto de Fusão: ' + r[5] + '\nPonto de Flash: ' + r[6]
-            str_out += '\nSolubilidade: ' + r[7] + '\nPressão de Vapor' + r[8] + '\nDensidade: ' + r[9]
-            str_out += '\nDensidade de Vapor: ' + r[10] + '\npKa' + r[11] + '\n--------------------\n\n'
-            image = Image.open('C:\\TCC\\images\\' + r[0] + '.png')
+            str_out += 'SMILES: '+ r[0] + '\nOdor: ' + r[1] + '\nNome do composto: ' + r[2] + '\nFórmula: ' + r[3] + '\n---------------------\n\n'
+            image = Image.open(os.path.join(os.path.join(os.path.dirname(__file__), 'images'), r[0] + '.png'))
             photo = ImageTk.PhotoImage(image)
             
             # descomentar para ter fotos no frame da esquerda. Tá bugado pra mais de uma foto
             # self.output_frame_left_text.image_create(tk.END, image = photo)
-            # self.output_frame_left_text.insert(tk.END, '\n')
+            #self.output_frame_left_text.insert(tk.END, '\n')
             self.output_frame_left_text.insert(tk.END, str_out)
             
             self.output_frame_mid_text['image'] = photo
@@ -156,4 +153,4 @@ root = tk.Tk()
 root.geometry('800x600+100+100')
 root.title('TCC v0.0')
 Window(root)
-root.mainloop()             
+root.mainloop()
