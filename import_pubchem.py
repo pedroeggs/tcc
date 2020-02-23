@@ -41,7 +41,7 @@ def import_from_pubchem():
         # pega dados no pubChem
         results = pcp.get_compounds(comp[0], 'smiles')
         # baixa a imagem de composto
-        pcp.download('PNG', os.path.join(CURR_PATH, comp[0], '.png'), comp[0], 'smiles', overwrite=True)
+        pcp.download('PNG', os.path.join(CURR_PATH, 'images', comp[0] + '.png'), comp[0], 'smiles', overwrite=True)
         
         # para cada resultado, escreve na planilha nova o SMILES, o aroma, o nome IUPAC e a fórmula molecular
         for c in results:

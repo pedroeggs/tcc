@@ -137,7 +137,7 @@ class Window:
             str_out += '\n\nPonto de Fusão: ' + r[5] + '\n\nPonto de Flash: ' + r[6]
             str_out += '\n\nSolubilidade: ' + r[7] + '\n\nPressão de Vapor' + r[8] + '\n\nDensidade: ' + r[9]
             str_out += '\n\nDensidade de Vapor: ' + r[10] + '\n\npKa: ' + r[11] + '\n--------------------\n\n'
-            image = Image.open(os.path.join(CURR_PATH,'images',r[0],'.png'))
+            image = Image.open(os.path.join(CURR_PATH, 'images', r[0] + '.png'))
             photo = ImageTk.PhotoImage(image)
             
             # descomentar para ter fotos no frame da esquerda. Tá bugado pra mais de uma foto

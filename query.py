@@ -136,7 +136,8 @@ def get_data(column_filter, search_parameter):
         
         for row in c.fetchall():
             result_list.append(row)
-        
+            print(row)
+            
         conn.close()
         return result_list
         
