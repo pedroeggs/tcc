@@ -121,22 +121,50 @@ def update_db():
     except Error as e:
         print(e)
 
-def get_data(column_filter, search_parameter):
+def get_data(search_parameters):
     
+    compound = search_parameters[0]
+    formula = search_parameters[1]
+    odour = search_parameters[2]
+    
+    # Modifica a query baseado em quais parâmetros foram dados
+    query = "SELECT * FROM molecule_table"
+
+    if compound != '':
+
+        query += """ WHERE compound_name LIKE '%""" + compound + """%'"""
+
+        if formula != '':
+
+            query += """ AND formula LIKE '%""" + formula + """%'"""
+
+        if odour != '':
+
+            query += """ AND odour LIKE '%""" + odour + """%'"""
+
+    elif formula != '':
+
+            query += """ WHERE formula LIKE '%""" + formula + """%'"""
+            if odour != '':
+
+                query += """ AND odour LIKE '%""" + odour + """%'"""
+
+    elif odour != '':
+
+        query += """ WHERE odour LIKE '%""" + odour + """%'"""
+
+
     database = os.path.join(CURR_PATH, "camd_db.db")   
     conn = create_connection(database)
     result_list = []
     try:
+        
         c = conn.cursor()
         # match parcial no banco de dados
-        c.execute("""
-        SELECT * FROM molecule_table  WHERE """ + column_filter +  """ LIKE '%""" +
-        search_parameter + """%'       
-        """)
+        c.execute(query)
         
         for row in c.fetchall():
             result_list.append(row)
-            print(row)
             
         conn.close()
         return result_list
