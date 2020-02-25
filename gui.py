@@ -8,6 +8,7 @@ import tkinter as tk
 import query 
 from PIL import Image, ImageTk
 import os
+from gui_add_comp import Window_Add
 
 CURR_PATH = os.path.dirname(os.path.abspath(__file__))
 
@@ -53,9 +54,17 @@ class Window:
         self.odour_entry = tk.Entry(master=self.search_frame, textvariable=self.odour_var_entry, fg='grey')
         self.odour_entry.place(x=607,y=27, relwidth=0.1, height=28)
 
+        # Botão de pesquisa 
+
         self.search_btn = tk.Button(master=self.search_frame, text='Pesquisar',
                                               command=lambda: self.search_compounds())
         self.search_btn.place(x=690, y=27, height=28)
+
+        # Botão de Adição
+
+        self.add_btn = tk.Button(master=self.search_frame, text='Adicionar Compostos',
+                                              command=lambda: self.open_add())
+        self.add_btn.place(x=305, y=87, height=28)
     
         # Frames inferiores (de output)
         # Esquerda
@@ -87,9 +96,17 @@ class Window:
         
         self.output_frame_mid_text = tk.Label(master=self.output_frame_mid, text='', bg='white', image='')
         self.output_frame_mid_text.place(relx=0,rely=0,relheight=1,relwidth=1)
-        
-        
-        
+
+    def open_add(self):
+
+        # roda a nova janela 
+
+        root_add = tk.Tk()
+        root_add.geometry('800x400+100+100')
+        root_add.title('TCC v0.0')
+        Window_Add(root_add)
+        root_add.mainloop()
+
     def search_compounds(self):
         
         self.output_frame_left_text.delete('1.0', tk.END)

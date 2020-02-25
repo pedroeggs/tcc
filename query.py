@@ -95,21 +95,19 @@ def read_molecule_csv():
         
     return table_list
 
-def update_db():
-    
-    # Lê o arquivo com os compostos
-    values_list = read_molecule_csv()    
+def update_db(values_list):
 
     database = os.path.join(CURR_PATH, "camd_db.db")   
     conn = create_connection(database)
-    
+    print(values_list)
+
     try:
         c = conn.cursor()
         
         c.executemany("""
-        INSERT INTO molecule_table (smiles, odour, compound_name, formula, boiling_point, melting_point, 
+        INSERT OR REPLACE INTO molecule_table (smiles, odour, compound_name, formula, boiling_point, melting_point, 
         flash_point, solubility, vapor_pressure, density, vapor_density, pka)
-        VALUES (?,?,?,?,?,?,?,?,?,?,?,?)
+        VALUES (?,?,?,?,?,?,?,?,?,?,?,?) 
         """, values_list)
         
         conn.commit()
@@ -172,5 +170,5 @@ def get_data(search_parameters):
     except Error as e:
         print(e)
   
-create_db()      
-update_db()
+#create_db()      
+#update_db(read_molecule_csv())
