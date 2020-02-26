@@ -4,7 +4,7 @@ from PIL import Image, ImageTk
 import os
 
 
-ODOURS = ["Anis", "Azedo", "Balsamo", "Doce"]
+ODOURS = ["Anis", "Azedo", "Balnilha", "Balsamo", "Canfora", "Doce", "Frutado", "Mel"]
 
 
 class App(tk.Frame):
@@ -13,29 +13,76 @@ class App(tk.Frame):
         self.parent = parent
 
         self.create_search_bar_frame(self.parent)
+        self.submit_button = tk.Button(
+            self.parent, text="Pesquisar", command=self.submit
+        ).pack(anchor="n")
         self.create_compound_info_frame(self.parent)
 
     def create_search_bar_frame(self, parent):
         self.search_bar_frame = tk.Frame(parent)
-        self.create_search_bar(self.search_bar_frame)
-        self.create_odour_dropbox(self.search_bar_frame)
+
+        self.smiles_search_bar = self.create_search_bar(
+            self.search_bar_frame, row=0, label="Smiles: "
+        )
+        self.compound_name_search_bar = self.create_search_bar(
+            self.search_bar_frame, row=1, label="Nome: "
+        )
+        self.formula_search_bar = self.create_search_bar(
+            self.search_bar_frame, row=2, label="Formula: "
+        )
+        self.boiling_point_search_bar = self.create_search_bar(
+            self.search_bar_frame, row=3, label="Ponto de Ebulicao: "
+        )
+        self.melting_point_search_bar = self.create_search_bar(
+            self.search_bar_frame, row=4, label="Ponto de Fusao: "
+        )
+        self.flash_point_search_bar = self.create_search_bar(
+            self.search_bar_frame, row=5, label="Ponto de Flash: "
+        )
+        self.solubility_search_bar = self.create_search_bar(
+            self.search_bar_frame, row=6, label="Solubilidade: "
+        )
+        self.vapor_pressure_search_bar = self.create_search_bar(
+            self.search_bar_frame, row=7, label="Pressao de Vapor: "
+        )
+        self.density_search_bar = self.create_search_bar(
+            self.search_bar_frame, row=8, label="Densidade: "
+        )
+        self.vapor_density_search_bar = self.create_search_bar(
+            self.search_bar_frame, row=9, label="Densidade de Vapor: "
+        )
+        self.pka_search_bar = self.create_search_bar(
+            self.search_bar_frame, row=10, label="pka: "
+        )
+
+        self.odour_dropbox, self.odour_dropbox_value = self.create_dropbox(
+            self.search_bar_frame, ODOURS
+        )
+        self.odour_dropbox.grid(row=4, column=2)
+
         self.search_bar_frame.pack(anchor="nw")
 
-    def create_search_bar(self, parent, label="Pesquisar: ", search_bar_width=60):
-        tk.Label(parent, text=label).pack(
-            side="left"
+        parent.bind(
+            "<Return>", self.submit
+        )  # hitting the enter button has the same function as clicking the 'Pesquisar' button
+
+    def create_search_bar(
+        self, parent, row=0, column=0, label="Pesquisar: ", search_bar_width=60
+    ):
+        tk.Label(parent, text=label).grid(
+            row=row, column=column
         )  # nome do campo sempre no canto superior esquerdo
-        self.search_bar = tk.Entry(parent, width=search_bar_width)
-        self.search_bar.pack(
-            side="left"
+        search_bar = tk.Entry(parent, width=search_bar_width)
+        search_bar.grid(
+            row=row, column=column + 1
         )  # sempre coloca a barra de pesquisa há uma certa distância do nome baseado no tamanho do nome
+        return search_bar
 
-    def create_odour_dropbox(self, parent):
-        self.odour_value = tk.StringVar(parent)
-        self.odour_value.set(ODOURS[0])
+    def create_dropbox(self, parent, options):
+        value = tk.StringVar(parent)
+        value.set(options[0])
 
-        self.odour_dropbox = tk.OptionMenu(parent, self.odour_value, *ODOURS)
-        self.odour_dropbox.pack(side="left")
+        return tk.OptionMenu(parent, value, *options), value
 
     def create_compound_info_frame(self, parent):
         self.scrollFrame = ScrollFrame(parent)  # add a new scrollable frame.
@@ -61,6 +108,24 @@ class App(tk.Frame):
 
     def printMsg(self, msg):
         print(msg)
+
+    def submit(self, event=None):
+        self.displayed_values = query.new_get_data(
+            smiles=self.smiles_search_bar.get(),
+            compound_name=self.compound_name_search_bar.get(),
+            formula=self.formula_search_bar.get(),
+            boiling_point=self.boiling_point_search_bar.get(),
+            melting_point=self.melting_point_search_bar.get(),
+            flash_point=self.flash_point_search_bar.get(),
+            solubility=self.solubility_search_bar.get(),
+            vapor_pressure=self.vapor_pressure_search_bar.get(),
+            density=self.density_search_bar.get(),
+            vapor_density=self.vapor_density_search_bar.get(),
+            pka=self.pka_search_bar.get(),
+            odour=self.odour_dropbox_value.get(),
+        )
+        for row in self.displayed_values:
+            print(row[2])
 
 
 class ScrollFrame(tk.Frame):
