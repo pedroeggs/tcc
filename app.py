@@ -2,21 +2,58 @@ import tkinter as tk
 import query
 from PIL import Image, ImageTk
 import os
+from sql import SQLite
 
 
-ODOURS = ["Anis", "Azedo", "Balnilha", "Balsamo", "Canfora", "Doce", "Frutado", "Mel"]
+# TODO: ver como pegar a info do text do botao que eu cliquei especificamente e mudar o posicionamento do botao de pesquisar pra ficar no mesmo frame das search bars
+
+CURR_PATH = os.path.dirname(__file__)
+
+ODOURS = [
+    "Anis",
+    "Azedo",
+    "Balnilha",
+    "Balsamo",
+    "Canfora",
+    "Doce",
+    "Frutado",
+    "Mel",
+    "Rosa",
+]
+
+sqlite = SQLite(os.path.join(os.path.dirname(os.path.abspath(__file__)), "camd_db.db"))
+ODOURS = [""] + sorted(
+    list(
+        set(
+            [
+                x[0].split(",")[0]
+                for x in sqlite.execute(
+                    "SELECT DISTINCT odour FROM molecule_table"
+                ).fetchall()
+            ]
+        )
+    )
+)
 
 
 class App(tk.Frame):
     def __init__(self, parent, *args, **kwargs):
         tk.Frame.__init__(self, parent, *args, **kwargs)
         self.parent = parent
+        self.compound_info_buttons = []
 
         self.create_search_bar_frame(self.parent)
         self.submit_button = tk.Button(
-            self.parent, text="Pesquisar", command=self.submit
+            self.parent, text="Pesquisar", command=self.search
         ).pack(anchor="n")
-        self.create_compound_info_frame(self.parent)
+        self.output_frame = tk.Frame(self.parent)
+        self.output_frame.pack(side="left", anchor="n", fill="both", expand=True)
+        self.create_compound_info_frame(self.output_frame)
+        self.create_image_frame(self.output_frame)
+
+    def search(self):
+        self.submit()
+        self.update_compound_info_frame()
 
     def create_search_bar_frame(self, parent):
         self.search_bar_frame = tk.Frame(parent)
@@ -85,29 +122,26 @@ class App(tk.Frame):
         return tk.OptionMenu(parent, value, *options), value
 
     def create_compound_info_frame(self, parent):
-        self.scrollFrame = ScrollFrame(parent)  # add a new scrollable frame.
-
-        for row in range(15):
-            a = row
-            tk.Label(
-                self.scrollFrame.viewPort,
-                text="%s" % row,
-                width=3,
-                borderwidth="1",
-                relief="solid",
-            ).grid(row=row, column=0)
-            t = "this is the second column for row %s" % row
-            tk.Button(
-                self.scrollFrame.viewPort,
-                text=t,
-                command=lambda x=a: self.printMsg("Hello " + str(x)),
-            ).grid(row=row, column=1)
+        self.compound_info_frame = ScrollFrame(parent)  # add a new scrollable frame.
+        self.submit()  # updates the displayed values to be all the items in the database
+        self.update_compound_info_frame()  # clears the current buttons and draws new ones based on the query result
 
         # when packing the scrollframe, we pack scrollFrame itself (NOT the viewPort)
-        self.scrollFrame.pack(side="left", anchor="n", fill="both", expand=True)
+        self.compound_info_frame.pack(side="left", anchor="n")
 
-    def printMsg(self, msg):
-        print(msg)
+    def create_image_frame(self, parent):
+        self.image_frame = tk.Frame(master=parent)
+        self.image_panel = tk.Label(master=self.image_frame)
+        self.image_panel.pack()
+        self.update_image(
+            os.path.join(CURR_PATH, "images", f"{self.displayed_values[0][0]}.png")
+        )  # when first creating the image frame, show the image of the first compound on the list
+        self.image_frame.pack()
+
+    def update_image(self, image_path):
+        img = tk.PhotoImage(file=image_path)
+        self.image_panel.configure(image=img)
+        self.image_panel.image = img
 
     def submit(self, event=None):
         self.displayed_values = query.new_get_data(
@@ -124,8 +158,25 @@ class App(tk.Frame):
             pka=self.pka_search_bar.get(),
             odour=self.odour_dropbox_value.get(),
         )
+
+    def update_compound_info_frame(self):
+        for compound_buttons in self.compound_info_buttons:
+            compound_buttons.grid_forget()  # removes the buttons before adding new ones
+        self.compound_info_buttons = (
+            []
+        )  # clears the list of buttons since the buttons have been deleted
         for row in self.displayed_values:
-            print(row[2])
+            button = tk.Button(
+                self.compound_info_frame.viewPort,
+                text=row[3],
+                height=5,
+                width=20,
+                command=lambda: print(row[0]),
+            )  # creates a button for each result of the query
+            self.compound_info_buttons.append(
+                button
+            )  # adds them to the list so we know to clean them up later
+            button.grid(row=self.displayed_values.index(row))
 
 
 class ScrollFrame(tk.Frame):
@@ -133,7 +184,7 @@ class ScrollFrame(tk.Frame):
         super().__init__(parent)  # create a frame (self)
 
         self.canvas = tk.Canvas(
-            self, borderwidth=0, background="#ffffff"
+            self, borderwidth=0, background="#ffffff", width=150
         )  # place canvas on self
         self.viewPort = tk.Frame(
             self.canvas, background="#ffffff"
