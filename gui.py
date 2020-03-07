@@ -16,7 +16,7 @@ CURR_PATH = os.path.dirname(os.path.abspath(__file__))
 class Window:
     
     def __init__(self, master):
-        
+
         # Frame do Topo (pesquisa de compostos)
         
         self.search_frame = tk.Frame(master=master, highlightbackground='black', highlightcolor='black',
@@ -28,120 +28,122 @@ class Window:
         # Adicionar nome
         
         self.search_frame_title = tk.Label(master=self.search_frame, text='Nome: ')
-        self.search_frame_title.place(x=5,y=5)
+        self.search_frame_title.place(relx=0.00625,y=0.00625)
         
         self.compound_var = tk.StringVar()
-        self.compound_entry = tk.Entry(master=self.search_frame, textvariable=self.compound_var, fg='grey')
-        self.compound_entry.place(x=7,y=27, relwidth=0.1, height=28) 
+        self.compound_entry = tk.Entry(master=self.search_frame, textvariable=self.compound_var, fg='black')
+        self.compound_entry.place(relx=0.00875,rely=0.07, relwidth=0.1, height=28) 
         
         # Adicionar fórmula
         
         self.formula_search_frame_title = tk.Label(master=self.search_frame, text='Fórmula: ')
-        self.formula_search_frame_title.place(x=305,y=5)
+        self.formula_search_frame_title.place(relx=0.38125,rely=0.00625)
         
         self.formula_var = tk.StringVar()
-        self.formula_entry = tk.Entry(master=self.search_frame, textvariable=self.formula_var, fg='grey')
-        self.formula_entry.place(x=307,y=27, relwidth=0.1, height=28)
+        self.formula_entry = tk.Entry(master=self.search_frame, textvariable=self.formula_var, fg='black')
+        self.formula_entry.place(relx=0.38375,rely=0.07, relwidth=0.1, height=28)
         
         # Adicionar aroma
         
         self.odour_search_frame_title = tk.Label(master=self.search_frame, text='Aroma: ')
-        self.odour_search_frame_title.place(x=605,y=5)
+        self.odour_search_frame_title.place(relx=0.75625,rely=0.00625)
         
         self.odour_var = tk.StringVar()
-        self.odour_entry = tk.Entry(master=self.search_frame, textvariable=self.odour_var, fg='grey')
-        self.odour_entry.place(x=607,y=27, relwidth=0.1, height=28)
+        self.odour_entry = tk.Entry(master=self.search_frame, textvariable=self.odour_var, fg='black')
+        self.odour_entry.place(relx=0.75875,rely=0.07, relwidth=0.1, height=28)
 
         # Adicionar SMILES
         
         self.smiles_search_frame_title = tk.Label(master=self.search_frame, text='SMILES: ')
-        self.smiles_search_frame_title.place(x=5,y=65)
+        self.smiles_search_frame_title.place(relx=0.00625,rely=0.2)
         
         self.smiles_var = tk.StringVar()
-        self.smiles_entry = tk.Entry(master=self.search_frame, textvariable=self.smiles_var, fg='grey')
-        self.smiles_entry.place(x=7,y=87, relwidth=0.1, height=28)
+        self.smiles_entry = tk.Entry(master=self.search_frame, textvariable=self.smiles_var, fg='black')
+        self.smiles_entry.place(relx=0.00875,rely=0.27, relwidth=0.1, height=28)
 
         # Adicionar Ponto de Ebulição
         
         self.BP_search_frame_title = tk.Label(master=self.search_frame, text='Ponto de Ebulição: ')
-        self.BP_search_frame_title.place(x=305,y=65)
+        self.BP_search_frame_title.place(relx=0.38125,rely=0.2)
         
         self.BP_var = tk.StringVar()
-        self.BP_entry = tk.Entry(master=self.search_frame, textvariable=self.BP_var, fg='grey')
-        self.BP_entry.place(x=307,y=87, relwidth=0.1, height=28)
+        self.BP_entry = tk.Entry(master=self.search_frame, textvariable=self.BP_var, fg='black')
+        self.BP_entry.place(relx=0.38375,rely=0.27, relwidth=0.1, height=28)
 
         # Adicionar Ponto de Fusão
         
         self.MP_search_frame_title = tk.Label(master=self.search_frame, text='Ponto de Fusão: ')
-        self.MP_search_frame_title.place(x=605,y=65)
+        self.MP_search_frame_title.place(relx=0.75625,rely=0.2)
         
         self.MP_var = tk.StringVar()
-        self.MP_entry = tk.Entry(master=self.search_frame, textvariable=self.MP_var, fg='grey')
-        self.MP_entry.place(x=607,y=87, relwidth=0.1, height=28)
+        self.MP_entry = tk.Entry(master=self.search_frame, textvariable=self.MP_var, fg='black')
+        self.MP_entry.place(relx=0.75875,rely=0.27, relwidth=0.1, height=28)
 
         # Adicionar Ponto de Flash
         
         self.FP_search_frame_title = tk.Label(master=self.search_frame, text='Ponto de Flash: ')
-        self.FP_search_frame_title.place(x=5,y=125)
+        self.FP_search_frame_title.place(relx=0.00625,rely=0.4)
         
         self.FP_var = tk.StringVar()
-        self.FP_entry = tk.Entry(master=self.search_frame, textvariable=self.FP_var, fg='grey')
-        self.FP_entry.place(x=7,y=147, relwidth=0.1, height=28)
+        self.FP_entry = tk.Entry(master=self.search_frame, textvariable=self.FP_var, fg='black')
+        self.FP_entry.place(relx=0.00875,rely=0.47, relwidth=0.1, height=28)
 
         # Adicionar Solubilidade
         
         self.solubility_search_frame_title = tk.Label(master=self.search_frame, text='Solubilidade: ')
-        self.solubility_search_frame_title.place(x=305,y=125)
+        self.solubility_search_frame_title.place(relx=0.38125,rely=0.4)
         
         self.solubility_var = tk.StringVar()
-        self.solubility_entry = tk.Entry(master=self.search_frame, textvariable=self.solubility_var, fg='grey')
-        self.solubility_entry.place(x=307,y=147, relwidth=0.1, height=28)
+        self.solubility_entry = tk.Entry(master=self.search_frame, textvariable=self.solubility_var, fg='black')
+        self.solubility_entry.place(relx=0.38375,rely=0.47, relwidth=0.1, height=28)
 
         # Adicionar Pressão de Vapor
         
         self.VP_search_frame_title = tk.Label(master=self.search_frame, text='Pressão de Vapor: ')
-        self.VP_search_frame_title.place(x=605,y=125)
+        self.VP_search_frame_title.place(relx=0.75625,rely=0.4)
         
         self.VP_var = tk.StringVar()
-        self.VP_entry = tk.Entry(master=self.search_frame, textvariable=self.VP_var, fg='grey')
-        self.VP_entry.place(x=607,y=147, relwidth=0.1, height=28)
+        self.VP_entry = tk.Entry(master=self.search_frame, textvariable=self.VP_var, fg='black')
+        self.VP_entry.place(relx=0.75875,rely=0.47, relwidth=0.1, height=28)
 
         # Adicionar Densidade
         
         self.density_search_frame_title = tk.Label(master=self.search_frame, text='Densidade: ')
-        self.density_search_frame_title.place(x=5,y=185)
+        self.density_search_frame_title.place(relx=0.00625,rely=0.6)
         
         self.density_var = tk.StringVar()
-        self.density_entry = tk.Entry(master=self.search_frame, textvariable=self.density_var, fg='grey')
-        self.density_entry.place(x=7,y=207, relwidth=0.1, height=28)
+        self.density_entry = tk.Entry(master=self.search_frame, textvariable=self.density_var, fg='black')
+        self.density_entry.place(relx=0.00875,rely=0.67, relwidth=0.1, height=28)
 
         # Adicionar Densidade de Vapor
         
         self.vapor_density_search_frame_title = tk.Label(master=self.search_frame, text='Densidade de Vapor: ')
-        self.vapor_density_search_frame_title.place(x=305,y=185)
+        self.vapor_density_search_frame_title.place(relx=0.38125,rely=0.6)
         
         self.vapor_density_var = tk.StringVar()
-        self.vapor_density_entry = tk.Entry(master=self.search_frame, textvariable=self.vapor_density_var, fg='grey')
-        self.vapor_density_entry.place(x=307,y=207, relwidth=0.1, height=28)
+        self.vapor_density_entry = tk.Entry(master=self.search_frame, textvariable=self.vapor_density_var, fg='black')
+        self.vapor_density_entry.place(relx=0.38375,rely=0.67, relwidth=0.1, height=28)
 
         # Adicionar pKa
         
         self.pka_search_frame_title = tk.Label(master=self.search_frame, text='pKa: ')
-        self.pka_search_frame_title.place(x=605,y=185)
+        self.pka_search_frame_title.place(relx=0.75625,rely=0.6)
         
         self.pka_var = tk.StringVar()
-        self.pka_entry = tk.Entry(master=self.search_frame, textvariable=self.pka_var, fg='grey')
-        self.pka_entry.place(x=607,y=207, relwidth=0.1, height=28)
+        self.pka_entry = tk.Entry(master=self.search_frame, textvariable=self.pka_var, fg='black')
+        self.pka_entry.place(relx=0.75875,rely=0.67, relwidth=0.1, height=28)
+
+        # Botão de Adição
 
         self.add_btn = tk.Button(master=self.search_frame, text='Adicionar composto ao banco de dados',
                                             command=lambda: self.add_compound())
-        self.add_btn.place(x=100, y=250, height=28)
+        self.add_btn.place(relx=0.100875, rely=0.85, height=28, relwidth = 0.275)
 
         # Botão de pesquisa 
 
         self.search_btn = tk.Button(master=self.search_frame, text='Pesquisar compostos no banco de dados',
                                               command=lambda: self.search_compounds())
-        self.search_btn.place(x=400, y=250, height=28)
+        self.search_btn.place(relx=0.48375, rely=0.85, height=28, relwidth = 0.275)
     
         # Frames inferiores (de output)
         # Esquerda
@@ -170,14 +172,24 @@ class Window:
     def search_compounds(self):
         
         self.output_frame_left_text.delete('1.0', tk.END)
-        
-        search_parameters = [self.compound_var.get(), self.formula_var.get(),
-                             self.odour_var.get()]
+
 
         # 'aperta' o botão
         self.search_btn.configure(relief='sunken')
     
-        results = query.get_data(search_parameters)
+        results = query.new_get_data(smiles=self.smiles_var.get(),
+                                    compound_name=self.compound_var.get(),
+                                    formula=self.formula_var.get(),
+                                    boiling_point=self.BP_var.get(),
+                                    melting_point=self.MP_var.get(),
+                                    flash_point=self.FP_var.get(),
+                                    solubility=self.solubility_var.get(),
+                                    vapor_pressure=self.VP_var.get(),
+                                    density=self.density_var.get(),
+                                    vapor_density=self.vapor_density_var.get(),
+                                    pka=self.pka_var.get(),
+                                    odour=self.odour_var.get())
+
         self.search_btn.configure(relief='raised')
 
         str_out = ''
@@ -275,9 +287,35 @@ class Window:
         # solta o botão
         self.search_btn.configure(relief='raised')
         return 'break'
-    
+
+def search_help():
+
+    messagebox.showinfo('Ajuda de Pesquisa','''O programa realiza pesquisas com qualquer forma de preenchimento das entradas. Como exemplos:\n
+a) Para pesquisar compostos com 8 carbonos que têm aroma Doce, digite "C8" no campo "Fórmula" e "Doce" no campo "Aroma".\n
+b) Para pesquisar todos os compostos, simplesmente pressione o botão de pesquisa sem preencher qualquer campo.''')
+
+def add_help():
+
+    messagebox.showinfo('Ajuda de Atualização','Para adicionar um novo composto ao banco de dados, é necessário preencher o campo "Nome" e pelo menos um outro campo disponível.')
+
+def about():
+
+    messagebox.showinfo('Sobre','''TKAroma v1.0 (07/03/2020)\n\nO programa TKAroma foi criado por Arthur Adabo de Camargo e Pedro Alvares Eggers como projeto de conclusão do curso de Engenharia Química da Escola Politécnica da Universidade de São Paulo.\n
+O programa TKAroma foi escrito em Python, sendo utilizada a biblioteca TKinter para a interface gráfica, e em SQLite3 para o banco de dados. Sua finalidade é fornecer facilmente propriedades sobre compostos cujos aromas possam ser interessantes para a indústria de cosméticos, bem como permitir a pesquisa de tais aromas.''')
+
+
 root = tk.Tk()
+menubar = tk.Menu(root)
+
+help_menu = tk.Menu(menubar, tearoff=0)
+menubar.add_cascade(label="Ajuda", menu=help_menu)
+help_menu.add_command(label="Pesquisa", command = search_help)
+help_menu.add_command(label="Atualização de Banco de Dados", command = add_help)
+help_menu.add_command(label="Sobre", command = about)
+
 root.geometry('800x600+100+100')
-root.title('TCC v0.0')
+root.title('TKAroma')
+root.config(menu=menubar)
+root.minsize(800, 600)
 Window(root)
 root.mainloop()             
