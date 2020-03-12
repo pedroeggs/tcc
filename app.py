@@ -177,7 +177,7 @@ class App(tk.Frame):
         self.image_panel.image = img
 
     def submit(self, event=None):
-        self.displayed_values = query.get_data(
+        self.displayed_values = query.new_get_data(
             smiles=self.smiles_search_bar.get(),
             compound_name=self.compound_name_search_bar.get(),
             formula=self.formula_search_bar.get(),
