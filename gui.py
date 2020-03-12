@@ -177,7 +177,7 @@ class Window:
         # 'aperta' o botão
         self.search_btn.configure(relief='sunken')
     
-        results = query.new_get_data(smiles=self.smiles_var.get(),
+        results = query.get_data(smiles=self.smiles_var.get(),
                                     compound_name=self.compound_var.get(),
                                     formula=self.formula_var.get(),
                                     boiling_point=self.BP_var.get(),

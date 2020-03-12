@@ -121,7 +121,7 @@ class SQLite:
         except Error as e:
             print(e)
 
-    def new_get_data(
+    def get_data(
         self,
         smiles="",
         compound_name="",
@@ -145,57 +145,5 @@ class SQLite:
 
         return list(aux)
 
-    def get_data(self, search_parameters):
-
-        compound = search_parameters[0]
-        formula = search_parameters[1]
-        odour = search_parameters[2]
-
-        # Modifica a query baseado em quais parâmetros foram dados
-        query = "SELECT * FROM molecule_table"
-
-        if compound != "":
-
-            query += """ WHERE compound_name LIKE '%""" + compound + """%'"""
-
-            if formula != "":
-
-                query += """ AND formula LIKE '%""" + formula + """%'"""
-
-            if odour != "":
-
-                query += """ AND odour LIKE '%""" + odour + """%'"""
-
-        elif formula != "":
-
-            query += """ WHERE formula LIKE '%""" + formula + """%'"""
-            if odour != "":
-
-                query += """ AND odour LIKE '%""" + odour + """%'"""
-
-        elif odour != "":
-
-            query += """ WHERE odour LIKE '%""" + odour + """%'"""
-
-        database = os.path.join(CURR_PATH, "camd_db.db")
-        conn = create_connection(database)
-        result_list = []
-        try:
-
-            c = conn.cursor()
-            # match parcial no banco de dados
-            c.execute(query)
-
-            for row in c.fetchall():
-                result_list.append(row)
-
-            conn.close()
-            return result_list
-
-        except Error as e:
-            print(e)
-
-
 # create_db()
 # update_db(read_molecule_csv())
-
