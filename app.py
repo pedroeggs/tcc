@@ -5,8 +5,8 @@ import os
 from sql import SQLite
 
 
-# TODO: ver como pegar a info do text do botao que eu cliquei especificamente e mudar o posicionamento do botao de pesquisar pra ficar no mesmo frame das search bars
-# TODO: ver pq nao ta carregando os botao e travando o app
+# TODO: colocar o resto das informações no frame de display
+# TODO: fazer a add_compound
 
 CURR_PATH = os.path.dirname(__file__)
 
@@ -51,16 +51,12 @@ class App(tk.Frame):
         # self.create_compound_info_frame(self.output_frame)
         self.create_image_frame(self.parent)
 
-    def __del__(self):
-        if self.parent:
-            self.parent.destroy()
-
     def search(self):
         self.submit()
         self.update_results_frame()
 
     def add_compound(self):
-        print('mudar essa funcao')
+        print("mudar essa funcao")
 
     def create_search_frame(self, parent):
         self.search_frame = tk.Frame(parent)
@@ -71,7 +67,7 @@ class App(tk.Frame):
         self.formula_search_bar = self._create_search_bar(
             self.search_frame, x=0.38125, y=0, label="Formula: "
         )
-        tk.Label(self.search_frame, text='Aroma: ').place(relx=0.75875, rely=0)
+        tk.Label(self.search_frame, text="Aroma: ").place(relx=0.75875, rely=0)
         self.odour_dropbox, self.odour_dropbox_value = self.create_dropbox(
             self.search_frame, ODOURS
         )
@@ -108,11 +104,12 @@ class App(tk.Frame):
         self.submit_button = tk.Button(
             self.search_frame, text="Pesquisar", command=self.search
         )
-        self.submit_button.place(relx=0.48375, rely=0.85, height=28, relwidth = 0.275)
+        self.submit_button.place(relx=0.48375, rely=0.85, height=28, relwidth=0.275)
 
-        self.add_button = tk.Button(master=self.search_frame, text='Adicionar',
-                                 command=self.add_compound)
-        self.add_button.place(relx=0.100875, rely=0.85, height=28, relwidth = 0.275)
+        self.add_button = tk.Button(
+            master=self.search_frame, text="Adicionar", command=self.add_compound
+        )
+        self.add_button.place(relx=0.100875, rely=0.85, height=28, relwidth=0.275)
 
         self.search_frame.place(x=0, y=0, relwidth=1, relheight=0.5)
 
@@ -120,24 +117,14 @@ class App(tk.Frame):
             "<Return>", self.submit
         )  # hitting the enter button has the same function as clicking the 'Pesquisar' button
 
-    # def create_search_bar(
-    #     self, parent, row=0, column=0, label="Pesquisar: ", search_bar_width=60
-    # ):
-    #     tk.Label(parent, text=label).grid(
-    #         row=row, column=column
-    #     )  # nome do campo sempre no canto superior esquerdo
-    #     search_bar = tk.Entry(parent, width=search_bar_width)
-    #     search_bar.grid(
-    #         row=row, column=column + 1
-    #     )  # sempre coloca a barra de pesquisa há uma certa distância do nome baseado no tamanho do nome
-    #     return search_bar
-
     def _create_search_bar(self, parent, x, y, label, relwidth=0.1, height=28):
         label = tk.Label(parent, text=label)
         label.place(relx=x, rely=y)
 
-        search_bar = tk.Entry(parent, fg='black')
-        search_bar.place(relx=x+0.002, rely=y+0.07, relwidth=relwidth, height=height)
+        search_bar = tk.Entry(parent, fg="black")
+        search_bar.place(
+            relx=x + 0.002, rely=y + 0.07, relwidth=relwidth, height=height
+        )
 
         return search_bar
 
@@ -147,37 +134,95 @@ class App(tk.Frame):
 
         return tk.OptionMenu(parent, value, *options), value
 
-    #def create_compound_info_frame(self, parent):
-    #    self.results_frame = ScrollFrame(parent)  # add a new scrollable frame.
-    #    self.submit()  # updates the displayed values to be all the items in the database
-    #    self.update_compound_info_frame()  # clears the current buttons and draws new ones based on the query result
-#
-    #    # when packing the scrollframe, we pack scrollFrame itself (NOT the viewPort)
-    #    self.results_frame.pack(side="left", anchor="n")
-
     def create_results_frame(self, parent):
         self.results_frame = ScrollFrame(parent)
+        self.results_frame.bind("<Enter>", self._frame_entered)
+        self.results_frame.bind("<Leave>", self._frame_left)
         self.submit()
         self.update_results_frame()
 
-        self.results_frame.place(relx=0,rely=0.5,relheight=0.5,relwidth=0.3)
+        self.results_frame.place(relx=0, rely=0.5, relheight=0.5, relwidth=0.203)
 
     def create_image_frame(self, parent):
-        self.image_frame = tk.Frame(master=parent)
-        self.image_panel = tk.Label(master=self.image_frame)
-        self.image_panel.pack(anchor='n')
-        self.update_image(
-            os.path.join(CURR_PATH, "images", f"{self.displayed_values[0][0]}.png")
-        )  # when first creating the image frame, show the image of the first compound on the list
-        self.image_frame.place(relx=0.305,rely=0.5,relheight=0.5,relwidth=0.7)
+        self.image_frame = ScrollFrame(parent)
+        self.image_panel = tk.Label(master=self.image_frame.viewPort)
+        self.image_panel.pack(anchor="n")
 
-    def update_image(self, image_path):
-        img = tk.PhotoImage(file=image_path)
+        tk.Label(self.image_frame.viewPort, text="Name: ").pack()
+        self.result_name = tk.Label(self.image_frame.viewPort, text="")
+        self.result_name.pack()
+
+        tk.Label(self.image_frame.viewPort, text="SMILES: ").pack()
+        self.result_smiles = tk.Label(self.image_frame.viewPort, text="")
+        self.result_smiles.pack()
+
+        tk.Label(self.image_frame.viewPort, text="Formula: ").pack()
+        self.result_formula = tk.Label(self.image_frame.viewPort, text="")
+        self.result_formula.pack()
+
+        tk.Label(self.image_frame.viewPort, text="Odour: ").pack()
+        self.result_odour = tk.Label(self.image_frame.viewPort, text="")
+        self.result_odour.pack()
+
+        tk.Label(self.image_frame.viewPort, text="Boiling Point: ").pack()
+        self.result_boiling_point = tk.Label(self.image_frame.viewPort, text="")
+        self.result_boiling_point.pack()
+
+        tk.Label(self.image_frame.viewPort, text="Melting Point: ").pack()
+        self.result_melting_point = tk.Label(self.image_frame.viewPort, text="")
+        self.result_melting_point.pack()
+
+        tk.Label(self.image_frame.viewPort, text="Flash Point: ").pack()
+        self.result_flash_point = tk.Label(self.image_frame.viewPort, text="")
+        self.result_flash_point.pack()
+
+        tk.Label(self.image_frame.viewPort, text="Solubility: ").pack()
+        self.result_solubility = tk.Label(self.image_frame.viewPort, text="")
+        self.result_solubility.pack()
+
+        tk.Label(self.image_frame.viewPort, text="Vapor Pressure: ").pack()
+        self.result_vapor_pressure = tk.Label(self.image_frame.viewPort, text="")
+        self.result_vapor_pressure.pack()
+
+        tk.Label(self.image_frame.viewPort, text="Density: ").pack()
+        self.result_density = tk.Label(self.image_frame.viewPort, text="")
+        self.result_density.pack()
+
+        tk.Label(self.image_frame.viewPort, text="Vapor Density: ").pack()
+        self.result_vapor_density = tk.Label(self.image_frame.viewPort, text="")
+        self.result_vapor_density.pack()
+
+        tk.Label(self.image_frame.viewPort, text="pKa: ").pack()
+        self.result_pka = tk.Label(self.image_frame.viewPort, text="")
+        self.result_pka.pack()
+
+        self.update_image_frame(
+            self.displayed_values[0]
+        )  # when first creating the image frame, show the image of the first compound on the list
+
+        self.image_frame.place(relx=0.305, rely=0.5, relheight=0.5, relwidth=0.7)
+
+    def update_image_frame(self, compound_info):
+        img = tk.PhotoImage(
+            file=f'{os.path.join(CURR_PATH, "images", compound_info[0])}.png'
+        )
         self.image_panel.configure(image=img)
         self.image_panel.image = img
+        self.result_smiles.configure(text=compound_info[0])
+        self.result_odour.configure(text=compound_info[1])
+        self.result_name.configure(text=compound_info[2])
+        self.result_formula.configure(text=compound_info[3])
+        self.result_boiling_point.configure(text=compound_info[4])
+        self.result_melting_point.configure(text=compound_info[5])
+        self.result_flash_point.configure(text=compound_info[6])
+        self.result_solubility.configure(text=compound_info[7])
+        self.result_vapor_pressure.configure(text=compound_info[8])
+        self.result_density.configure(text=compound_info[9])
+        self.result_vapor_density.configure(text=compound_info[10])
+        self.result_pka.configure(text=compound_info[11])
 
     def submit(self, event=None):
-        self.displayed_values = query.new_get_data(
+        self.displayed_values = query.get_data(
             smiles=self.smiles_search_bar.get(),
             compound_name=self.compound_name_search_bar.get(),
             formula=self.formula_search_bar.get(),
@@ -192,6 +237,9 @@ class App(tk.Frame):
             odour=self.odour_dropbox_value.get(),
         )
 
+    def _handle_result_button_click(self, event):
+        self.update_image_frame(event.widget.info)
+
     def update_results_frame(self):
         for compound_buttons in self.results_buttons:
             compound_buttons.grid_forget()  # removes the buttons before adding new ones
@@ -201,16 +249,34 @@ class App(tk.Frame):
         for row in self.displayed_values:
             result = tk.Label(
                 self.results_frame.viewPort,
-                text=f'{row[3]}\n{row[1]}',
-                cursor='hand2',
+                text=f"{row[3]}\n{row[2]}",
+                cursor="hand2",
                 height=5,
                 width=20,
             )  # creates a button for each result of the query
+
+            result.info = row
+            result.grid(row=self.displayed_values.index(row))
+            result.bind(
+                "<Button-1>", lambda x: self._handle_result_button_click(x),
+            )
             self.results_buttons.append(
                 result
             )  # adds them to the list so we know to clean them up later
-            result.grid(row=self.displayed_values.index(row))
-            result.bind('<Button-1>', lambda x: self.update_image(CURR_PATH + f'/images/{row[0]}.png'))
+
+    # once the mouse is inside the frame bound to this command, binds the canvas portion of the frame to a handle scroll function using the mouse wheel
+    def _frame_entered(self, event):
+        event.widget.canvas.bind_all(
+            "<MouseWheel>", lambda x: self._handle_scroll(x, event.widget.canvas)
+        )  # passes the canvas to the _handle_scroll function because the scroll event can happen over any widget inside the frame entered, but only the canvas can actually yview_scroll
+
+    # once the mouse leaves the frame bound to this command, using the mouse whell wont do anything
+    def _frame_left(self, event):
+        event.widget.canvas.unbind_all("<MouseWheel>")
+
+    # scrolls a canvas yview
+    def _handle_scroll(self, event, canvas):
+        canvas.yview_scroll(int(-1 * (event.delta / 120)), "units")
 
 
 class ScrollFrame(tk.Frame):
@@ -266,8 +332,40 @@ class ScrollFrame(tk.Frame):
         )  # whenever the size of the canvas changes alter the window region respectively.
 
 
+def search_help():
+    tk.messagebox.showinfo(
+        "Ajuda de Pesquisa",
+        """O programa realiza pesquisas com qualquer forma de preenchimento das entradas. Como exemplos:\n
+a) Para pesquisar compostos com 8 carbonos que têm aroma Doce, digite "C8" no campo "Fórmula" e "Doce" no campo "Aroma".\n
+b) Para pesquisar todos os compostos, simplesmente pressione o botão de pesquisa sem preencher qualquer campo.""",
+    )
+
+
+def add_help():
+    tk.messagebox.showinfo(
+        "Ajuda de Atualização",
+        'Para adicionar um novo composto ao banco de dados, é necessário preencher o campo "Nome" e pelo menos um outro campo disponível.',
+    )
+
+
+def about():
+    tk.messagebox.showinfo(
+        "Sobre",
+        """TKAroma v1.0 (07/03/2020)\n\nO programa TKAroma foi criado por Arthur Adabo de Camargo e Pedro Alvares Eggers como projeto de conclusão do curso de Engenharia Química da Escola Politécnica da Universidade de São Paulo.\n
+O programa TKAroma foi escrito em Python, sendo utilizada a biblioteca TKinter para a interface gráfica, e em SQLite3 para o banco de dados. Sua finalidade é fornecer facilmente propriedades sobre compostos cujos aromas possam ser interessantes para a indústria de cosméticos, bem como permitir a pesquisa de tais aromas.""",
+    )
+
+
 if __name__ == "__main__":
     root = tk.Tk()
+    menubar = tk.Menu(root)
+
+    help_menu = tk.Menu(menubar, tearoff=0)
+    menubar.add_cascade(label="Ajuda", menu=help_menu)
+    help_menu.add_command(label="Pesquisa", command=search_help)
+    help_menu.add_command(label="Atualização de Banco de Dados", command=add_help)
+    help_menu.add_command(label="Sobre", command=about)
+
     root.geometry("800x600+300+300")
     App(root).pack(side="top", fill="both", expand=True)
     root.minsize(800, 600)
