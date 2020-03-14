@@ -3,7 +3,7 @@ import query
 from PIL import Image, ImageTk
 import os
 from sql import SQLite
-
+from tkinter import messagebox
 
 # TODO: colocar o resto das informações no frame de display
 # TODO: fazer a add_compound
@@ -365,7 +365,7 @@ if __name__ == "__main__":
     help_menu.add_command(label="Pesquisa", command=search_help)
     help_menu.add_command(label="Atualização de Banco de Dados", command=add_help)
     help_menu.add_command(label="Sobre", command=about)
-
+    root.config(menu=menubar)
     root.geometry("800x600+300+300")
     App(root).pack(side="top", fill="both", expand=True)
     root.minsize(800, 600)
