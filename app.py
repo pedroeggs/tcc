@@ -145,6 +145,8 @@ class App(tk.Frame):
 
     def create_image_frame(self, parent):
         self.image_frame = ScrollFrame(parent)
+        self.image_frame.bind("<Enter>", self._frame_entered)
+        self.image_frame.bind("<Leave>", self._frame_left)
         self.image_panel = tk.Label(master=self.image_frame.viewPort)
         self.image_panel.pack(anchor="n")
 
