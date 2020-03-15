@@ -42,7 +42,24 @@ class App(tk.Frame):
         self.update_results_frame()
 
     def add_compound(self):
-        print("mudar essa funcao")
+        query.update_db(
+            [
+            (
+            self.smiles_search_bar.get(),
+            self.odour_dropbox_value.get(),
+            self.compound_name_search_bar.get(),
+            self.formula_search_bar.get(),
+            self.boiling_point_search_bar.get(),
+            self.melting_point_search_bar.get(),
+            self.flash_point_search_bar.get(),
+            self.solubility_search_bar.get(),
+            self.vapor_pressure_search_bar.get(),
+            self.density_search_bar.get(),
+            self.vapor_density_search_bar.get(),
+            self.pka_search_bar.get()
+            )
+            ]
+        )
 
     def create_search_frame(self, parent):
         self.search_frame = tk.Frame(parent)
@@ -191,9 +208,19 @@ class App(tk.Frame):
         self.image_frame.place(relx=0.305, rely=0.5, relheight=0.5, relwidth=0.7)
 
     def update_image_frame(self, compound_info):
-        img = tk.PhotoImage(
-            file=f'{os.path.join(CURR_PATH, "images", compound_info[0])}.png'
-        )
+        
+        if os.path.isfile(os.path.join(CURR_PATH, "images", compound_info[0]) + '.png'):
+
+            img = tk.PhotoImage(
+                file=f'{os.path.join(CURR_PATH, "images", compound_info[0])}.png'
+            )
+        
+        else:
+
+            img = tk.PhotoImage(
+                file=f'{os.path.join(CURR_PATH, "images", "notfound")}.png'
+            )
+        
         self.image_panel.configure(image=img)
         self.image_panel.image = img
         self.result_smiles.configure(text=compound_info[0])
