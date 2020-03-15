@@ -2,7 +2,6 @@ import tkinter as tk
 import query
 from PIL import Image, ImageTk
 import os
-from sql import SQLite
 from tkinter import messagebox
 
 # TODO: colocar o resto das informações no frame de display
@@ -22,20 +21,7 @@ ODOURS = [
     "Rosa",
 ]
 
-sqlite = SQLite(os.path.join(os.path.dirname(os.path.abspath(__file__)), "camd_db.db"))
-ODOURS = [""] + sorted(
-    list(
-        set(
-            [
-                x[0].split(",")[0]
-                for x in sqlite.execute(
-                    "SELECT DISTINCT odour FROM molecule_table"
-                ).fetchall()
-            ]
-        )
-    )
-)
-
+ODOURS = query.get_odours()
 
 class App(tk.Frame):
     def __init__(self, parent, *args, **kwargs):
