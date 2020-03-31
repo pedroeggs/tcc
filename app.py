@@ -25,6 +25,7 @@ ODOURS = query.get_odours()
 class App(tk.Frame):
     def __init__(self, parent, *args, **kwargs):
         tk.Frame.__init__(self, parent, *args, **kwargs)
+        
         self.parent = parent
         self.results_buttons = []
 
@@ -191,51 +192,51 @@ class App(tk.Frame):
         self.image_panel.pack()
 
         tk.Label(self.image_frame.viewPort, text="Name: ").pack()
-        self.result_name = tk.Label(self.image_frame.viewPort, text="")
+        self.result_name = WrappingLabel(self.image_frame.viewPort, text="")
         self.result_name.pack()
 
         tk.Label(self.image_frame.viewPort, text="SMILES: ").pack()
-        self.result_smiles = tk.Label(self.image_frame.viewPort, text="")
+        self.result_smiles = WrappingLabel(self.image_frame.viewPort, text="")
         self.result_smiles.pack()
 
         tk.Label(self.image_frame.viewPort, text="Formula: ").pack()
-        self.result_formula = tk.Label(self.image_frame.viewPort, text="")
+        self.result_formula = WrappingLabel(self.image_frame.viewPort, text="")
         self.result_formula.pack()
 
         tk.Label(self.image_frame.viewPort, text="Odour: ").pack()
-        self.result_odour = tk.Label(self.image_frame.viewPort, text="")
+        self.result_odour = WrappingLabel(self.image_frame.viewPort, text="")
         self.result_odour.pack()
 
         tk.Label(self.image_frame.viewPort, text="Boiling Point: ").pack()
-        self.result_boiling_point = tk.Label(self.image_frame.viewPort, text="")
+        self.result_boiling_point = WrappingLabel(self.image_frame.viewPort, text="")
         self.result_boiling_point.pack()
 
         tk.Label(self.image_frame.viewPort, text="Melting Point: ").pack()
-        self.result_melting_point = tk.Label(self.image_frame.viewPort, text="")
+        self.result_melting_point = WrappingLabel(self.image_frame.viewPort, text="")
         self.result_melting_point.pack()
 
         tk.Label(self.image_frame.viewPort, text="Flash Point: ").pack()
-        self.result_flash_point = tk.Label(self.image_frame.viewPort, text="")
+        self.result_flash_point = WrappingLabel(self.image_frame.viewPort, text="")
         self.result_flash_point.pack()
 
         tk.Label(self.image_frame.viewPort, text="Solubility: ").pack()
-        self.result_solubility = tk.Label(self.image_frame.viewPort, text="")
+        self.result_solubility = WrappingLabel(self.image_frame.viewPort, text="")
         self.result_solubility.pack()
 
         tk.Label(self.image_frame.viewPort, text="Vapor Pressure: ").pack()
-        self.result_vapor_pressure = tk.Label(self.image_frame.viewPort, text="")
+        self.result_vapor_pressure = WrappingLabel(self.image_frame.viewPort, text="")
         self.result_vapor_pressure.pack()
 
         tk.Label(self.image_frame.viewPort, text="Density: ").pack()
-        self.result_density = tk.Label(self.image_frame.viewPort, text="")
+        self.result_density = WrappingLabel(self.image_frame.viewPort, text="")
         self.result_density.pack()
 
         tk.Label(self.image_frame.viewPort, text="Vapor Density: ").pack()
-        self.result_vapor_density = tk.Label(self.image_frame.viewPort, text="")
+        self.result_vapor_density = WrappingLabel(self.image_frame.viewPort, text="")
         self.result_vapor_density.pack()
 
         tk.Label(self.image_frame.viewPort, text="pKa: ").pack()
-        self.result_pka = tk.Label(self.image_frame.viewPort, text="")
+        self.result_pka = WrappingLabel(self.image_frame.viewPort, text="")
         self.result_pka.pack()
 
         self.update_image_frame(
@@ -369,6 +370,12 @@ class App(tk.Frame):
         self.popup_menu.post(
             event.x_root, event.y_root
         )  # opens the popup menu with the delete option where the mouse clicked with the right button
+    
+class WrappingLabel(tk.Label):
+
+    def __init__(self, master, **kwargs):
+        tk.Label.__init__(self, master, **kwargs)
+        self.bind('<Configure>', lambda e: self.config(wraplength=master.winfo_width()))
 
 
 class ScrollFrame(tk.Frame):
