@@ -4,8 +4,6 @@ from PIL import Image, ImageTk
 import os
 from tkinter import messagebox
 
-# TODO: colocar o resto das informações no frame de display
-# TODO: fazer a add_compound
 
 CURR_PATH = os.path.dirname(__file__)
 
@@ -23,6 +21,7 @@ ODOURS = [
 
 ODOURS = query.get_odours()
 
+
 class App(tk.Frame):
     def __init__(self, parent, *args, **kwargs):
         tk.Frame.__init__(self, parent, *args, **kwargs)
@@ -32,34 +31,72 @@ class App(tk.Frame):
         self.create_search_frame(self.parent)
 
         self.create_results_frame(self.parent)
-        # self.output_frame = tk.Frame(self.parent)
-        # self.output_frame.pack(side="left", anchor="n", fill="both", expand=True)
-        # self.create_compound_info_frame(self.output_frame)
+
         self.create_image_frame(self.parent)
+
+        self.create_popup_menu(self.parent)
 
     def search(self):
         self.submit()
         self.update_results_frame()
 
     def add_compound(self):
-        query.update_db(
-            [
-            (
-            self.smiles_search_bar.get(),
-            self.odour_dropbox_value.get(),
-            self.compound_name_search_bar.get(),
-            self.formula_search_bar.get(),
-            self.boiling_point_search_bar.get(),
-            self.melting_point_search_bar.get(),
-            self.flash_point_search_bar.get(),
-            self.solubility_search_bar.get(),
-            self.vapor_pressure_search_bar.get(),
-            self.density_search_bar.get(),
-            self.vapor_density_search_bar.get(),
-            self.pka_search_bar.get()
-            )
-            ]
+        result = tk.messagebox.askokcancel(
+            message="Do you want to add the compound's information?"
         )
+        if result:
+            add_compound_info = [
+                (
+                    self.smiles_search_bar.get(),
+                    self.odour_dropbox_value.get(),
+                    self.compound_name_search_bar.get(),
+                    self.formula_search_bar.get(),
+                    self.boiling_point_search_bar.get(),
+                    self.melting_point_search_bar.get(),
+                    self.flash_point_search_bar.get(),
+                    self.solubility_search_bar.get(),
+                    self.vapor_pressure_search_bar.get(),
+                    self.density_search_bar.get(),
+                    self.vapor_density_search_bar.get(),
+                    self.pka_search_bar.get(),
+                )
+            ]
+            # button goes down
+            self.add_button.configure(relief="sunken")
+
+            # checa se o usuário colocou nome e alguma outra propriedade
+            if add_compound_info[0][2] == "" or True not in [
+                x != ""
+                for x in add_compound_info[0]
+                if add_compound_info[0].index(x) != 2
+            ]:
+                messagebox.showerror(
+                    message="O composto deve ter um nome e pelo menos outra propriedade. Por favor, verifique."
+                )
+            else:
+                query.update_db(add_compound_info)
+
+                # clears the entry search bars
+                self.compound_name_search_bar.delete(0, "end")
+                self.smiles_search_bar.delete(0, "end")
+                self.formula_search_bar.delete(0, "end")
+                self.boiling_point_search_bar.delete(0, "end")
+                self.melting_point_search_bar.delete(0, "end")
+                self.flash_point_search_bar.delete(0, "end")
+                self.solubility_search_bar.delete(0, "end")
+                self.vapor_pressure_search_bar.delete(0, "end")
+                self.density_search_bar.delete(0, "end")
+                self.vapor_density_search_bar.delete(0, "end")
+                self.pka_search_bar.delete(0, "end")
+                self.odour_dropbox_value.set(ODOURS[0])
+
+                messagebox.showinfo(
+                    "Atualização de dados", "Composto adicionado com sucesso."
+                )
+
+            # button comes up again
+            self.add_button.configure(relief="raised")
+            return "break"
 
     def create_search_frame(self, parent):
         self.search_frame = tk.Frame(parent)
@@ -144,14 +181,14 @@ class App(tk.Frame):
         self.submit()
         self.update_results_frame()
 
-        self.results_frame.place(relx=0, rely=0.5, relheight=0.5, relwidth=0.203)
+        self.results_frame.place(relx=0, rely=0.5, relheight=0.5, relwidth=0.425)
 
     def create_image_frame(self, parent):
         self.image_frame = ScrollFrame(parent)
         self.image_frame.bind("<Enter>", self._frame_entered)
         self.image_frame.bind("<Leave>", self._frame_left)
         self.image_panel = tk.Label(master=self.image_frame.viewPort)
-        self.image_panel.pack(anchor="n")
+        self.image_panel.pack()
 
         tk.Label(self.image_frame.viewPort, text="Name: ").pack()
         self.result_name = tk.Label(self.image_frame.viewPort, text="")
@@ -205,22 +242,28 @@ class App(tk.Frame):
             self.displayed_values[0]
         )  # when first creating the image frame, show the image of the first compound on the list
 
-        self.image_frame.place(relx=0.305, rely=0.5, relheight=0.5, relwidth=0.7)
+        self.image_frame.place(relx=0.43, rely=0.5, relheight=0.5, relwidth=0.57)
+
+    def create_popup_menu(self, parent):
+        self.popup_menu = tk.Menu(parent, tearoff=0)
+        self.popup_menu.add_command(
+            label="Delete", command=self.delete_compound
+        )  # adds the delete option to the menu which calls delete_compound by clicking it
 
     def update_image_frame(self, compound_info):
-        
-        if os.path.isfile(os.path.join(CURR_PATH, "images", compound_info[0]) + '.png'):
+
+        if os.path.isfile(os.path.join(CURR_PATH, "images", compound_info[0]) + ".png"):
 
             img = tk.PhotoImage(
                 file=f'{os.path.join(CURR_PATH, "images", compound_info[0])}.png'
             )
-        
+
         else:
 
             img = tk.PhotoImage(
                 file=f'{os.path.join(CURR_PATH, "images", "notfound")}.png'
             )
-        
+
         self.image_panel.configure(image=img)
         self.image_panel.image = img
         self.result_smiles.configure(text=compound_info[0])
@@ -252,6 +295,28 @@ class App(tk.Frame):
             odour=self.odour_dropbox_value.get(),
         )
 
+    def delete_compound(self):
+        if self.deleted_compound:
+            deleted = query.delete_compound(
+                self.deleted_compound[2]
+            )  # deletes compound from the database, returns True if deleted successfully
+            if deleted:
+                tk.messagebox.showinfo(
+                    "Deletion!", f"Deleted {self.deleted_compound[2]} SUCCESSFULLY"
+                )
+                self.submit()
+                self.update_results_frame()  # submit and update_results_frame are called to reset the results display
+            else:
+                tk.messagebox.showerror(
+                    "Deletion!",
+                    f"Something went wrong when trying to delete {self.deleted_compound[2]}. Deletion FAILED",
+                )
+        else:
+            tk.messagebox.showerror(
+                "Deletion!",
+                "Could not locate the compound on the database, try refreshing the compound list by clicking 'Pesquisar' again.",
+            )  # in a case where deleted_compound was not set, the compound problably doesnt exist anymore
+
     def _handle_result_button_click(self, event):
         self.update_image_frame(event.widget.info)
 
@@ -267,14 +332,20 @@ class App(tk.Frame):
                 text=f"{row[3]}\n{row[2]}",
                 cursor="hand2",
                 height=5,
-                width=20,
+                width=45,
             )  # creates a button for each result of the query
 
             result.info = row
-            result.grid(row=self.displayed_values.index(row))
+            result.grid(row=self.displayed_values.index(row), sticky="nsew")
+            self.results_frame.viewPort.grid_columnconfigure(
+                0, weight=1
+            )  # makes the labels fill the scrollable frame if the main window is resized
             result.bind(
                 "<Button-1>", lambda x: self._handle_result_button_click(x),
             )
+            result.bind(
+                "<Button-3>", lambda x: self._handle_result_button_right_click(x)
+            )  # binds the right button to the _handle_result_button_right_click
             self.results_buttons.append(
                 result
             )  # adds them to the list so we know to clean them up later
@@ -293,16 +364,22 @@ class App(tk.Frame):
     def _handle_scroll(self, event, canvas):
         canvas.yview_scroll(int(-1 * (event.delta / 120)), "units")
 
+    def _handle_result_button_right_click(self, event):
+        self.deleted_compound = event.widget.info
+        self.popup_menu.post(
+            event.x_root, event.y_root
+        )  # opens the popup menu with the delete option where the mouse clicked with the right button
+
 
 class ScrollFrame(tk.Frame):
     def __init__(self, parent):
         super().__init__(parent)  # create a frame (self)
 
         self.canvas = tk.Canvas(
-            self, borderwidth=0, background="#ffffff", width=150
+            self, borderwidth=0, background="#F0F0F0", width=150
         )  # place canvas on self
         self.viewPort = tk.Frame(
-            self.canvas, background="#ffffff"
+            self.canvas, background="#F0F0F0"
         )  # place a frame on the canvas, this frame will hold the child widgets
         self.vsb = tk.Scrollbar(
             self, orient="vertical", command=self.canvas.yview
@@ -382,6 +459,6 @@ if __name__ == "__main__":
     help_menu.add_command(label="Sobre", command=about)
     root.config(menu=menubar)
     root.geometry("800x600+300+300")
-    App(root).pack(side="top", fill="both", expand=True)
+    App(root, background="#F0F0F0").pack(side="top", fill="both", expand=True)
     root.minsize(800, 600)
     root.mainloop()

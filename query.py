@@ -16,6 +16,7 @@ import os
 
 CURR_PATH = os.path.dirname(os.path.abspath(__file__))
 
+
 def create_connection(db_file):
     """ create a database connection to the SQLite database
         specified by db_file
@@ -146,6 +147,7 @@ def get_data(
 
     return list(aux)
 
+
 def get_odours():
 
     database = os.path.join(CURR_PATH, "camd_db.db")
@@ -167,6 +169,18 @@ def get_odours():
 
     return ODOURS
 
+
+def delete_compound(name):
+    database = os.path.join(CURR_PATH, "camd_db.db")
+    try:
+        conn = create_connection(database)
+        c = conn.cursor()
+        c.execute(f'DELETE FROM molecule_table WHERE compound_name="{name}";')
+        conn.commit()
+        conn.close()
+        return True
+    except Exception:
+        return False
 
 
 # create_db()
