@@ -450,7 +450,7 @@ def add_help():
 def about():
     tk.messagebox.showinfo(
         "Sobre",
-        """Banco de Dados de Compostos Aromáticos v1.0 (31/03/2020)\n\nO programa foi criado por Arthur Adabo de Camargo e Pedro Alvares Eggers como projeto de conclusão do curso de Engenharia Química da Escola Politécnica da Universidade de São Paulo.\n
+        """Banco de Dados de Compostos Aromáticos v1.0 (31/03/2020)\n\nO programa foi criado por Arthur Adabo de Camargo e Pedro Alvares Eggers sob orientação do Prof. Dr. Moisés Teles dos Santos como projeto de conclusão do curso de Engenharia Química da Escola Politécnica da Universidade de São Paulo.\n
 O programa foi escrito em Python, sendo utilizada a biblioteca TKinter para a interface gráfica, e em SQLite3 para o banco de dados. Sua finalidade é fornecer facilmente propriedades sobre compostos cujos aromas possam ser interessantes para a indústria de cosméticos, bem como permitir a pesquisa de tais aromas.""",
     )
 
