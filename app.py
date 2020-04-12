@@ -100,7 +100,9 @@ class App(tk.Frame):
             return "break"
 
     def create_search_frame(self, parent):
-        self.search_frame = tk.Frame(parent)
+
+        self.search_frame = tk.Frame(parent, bd=1, relief=tk.SUNKEN)
+        self.button_frame = tk.Frame(parent)
 
         self.compound_name_search_bar = self._create_search_bar(
             self.search_frame, x=0.00625, y=0, label="Nome: "
@@ -143,16 +145,17 @@ class App(tk.Frame):
         )
 
         self.submit_button = tk.Button(
-            self.search_frame, text="Pesquisar", command=self.search
+            self.button_frame, text="Pesquisar", command=self.search
         )
-        self.submit_button.place(relx=0.48375, rely=0.85, height=28, relwidth=0.275)
+        self.submit_button.place(relx=0.58, rely=0.2, height=28, relwidth=0.275)
 
         self.add_button = tk.Button(
-            master=self.search_frame, text="Adicionar", command=self.add_compound
+            master=self.button_frame, text="Adicionar", command=self.add_compound
         )
-        self.add_button.place(relx=0.100875, rely=0.85, height=28, relwidth=0.275)
+        self.add_button.place(relx=0.1, rely=0.2, height=28, relwidth=0.275)
 
-        self.search_frame.place(x=0, y=0, relwidth=1, relheight=0.5)
+        self.search_frame.place(relx=0.01, rely=0.01, relwidth=0.98, relheight=0.41)
+        self.button_frame.place(relx=0, rely=0.42, relwidth=1, relheight=0.07)
 
         parent.bind(
             "<Return>", self.submit
@@ -182,7 +185,7 @@ class App(tk.Frame):
         self.submit()
         self.update_results_frame()
 
-        self.results_frame.place(relx=0, rely=0.5, relheight=0.5, relwidth=0.425)
+        self.results_frame.place(relx=0.01, rely=0.49, relheight=0.5, relwidth=0.415)
 
     def create_image_frame(self, parent):
         self.image_frame = ScrollFrame(parent)
@@ -243,7 +246,7 @@ class App(tk.Frame):
             self.displayed_values[0]
         )  # when first creating the image frame, show the image of the first compound on the list
 
-        self.image_frame.place(relx=0.43, rely=0.5, relheight=0.5, relwidth=0.57)
+        self.image_frame.place(relx=0.43, rely=0.49, relheight=0.5, relwidth=0.57)
 
     def create_popup_menu(self, parent):
         self.popup_menu = tk.Menu(parent, tearoff=0)
@@ -328,7 +331,7 @@ class App(tk.Frame):
             []
         )  # clears the list of buttons since the buttons have been deleted
         for row in self.displayed_values:
-            result = tk.Label(
+            result = WrappingLabel(
                 self.results_frame.viewPort,
                 text=f"{row[3]}\n{row[2]}",
                 cursor="hand2",
@@ -383,7 +386,7 @@ class ScrollFrame(tk.Frame):
         super().__init__(parent)  # create a frame (self)
 
         self.canvas = tk.Canvas(
-            self, borderwidth=0, background="#F0F0F0", width=150
+            self, borderwidth=0, background="#F0F0F0", width=150, bd=1, relief=tk.SUNKEN
         )  # place canvas on self
         self.viewPort = tk.Frame(
             self.canvas, background="#F0F0F0"
