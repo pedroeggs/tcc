@@ -7,25 +7,13 @@ from tkinter import messagebox
 
 CURR_PATH = os.path.dirname(__file__)
 
-ODOURS = [
-    "Anis",
-    "Azedo",
-    "Balnilha",
-    "Balsamo",
-    "Canfora",
-    "Doce",
-    "Frutado",
-    "Mel",
-    "Rosa",
-]
-
 ODOURS = query.get_odours()
 
 
 class App(tk.Frame):
     def __init__(self, parent, *args, **kwargs):
         tk.Frame.__init__(self, parent, *args, **kwargs)
-        
+
         self.parent = parent
         self.results_buttons = []
 
@@ -40,6 +28,9 @@ class App(tk.Frame):
     def search(self):
         self.submit()
         self.update_results_frame()
+        self.update_image_frame(
+            self.displayed_values[0]
+        )  # always displays the result of the firs item fetched from the search
 
     def add_compound(self):
         result = tk.messagebox.askokcancel(
@@ -94,6 +85,8 @@ class App(tk.Frame):
                 messagebox.showinfo(
                     "Atualização de dados", "Composto adicionado com sucesso."
                 )
+
+                self.search()
 
             # button comes up again
             self.add_button.configure(relief="raised")
@@ -373,12 +366,12 @@ class App(tk.Frame):
         self.popup_menu.post(
             event.x_root, event.y_root
         )  # opens the popup menu with the delete option where the mouse clicked with the right button
-    
-class WrappingLabel(tk.Label):
 
+
+class WrappingLabel(tk.Label):
     def __init__(self, master, **kwargs):
         tk.Label.__init__(self, master, **kwargs)
-        self.bind('<Configure>', lambda e: self.config(wraplength=master.winfo_width()))
+        self.bind("<Configure>", lambda e: self.config(wraplength=master.winfo_width()))
 
 
 class ScrollFrame(tk.Frame):

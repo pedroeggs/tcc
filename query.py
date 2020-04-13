@@ -101,18 +101,51 @@ def update_db(values_list):
     database = os.path.join(CURR_PATH, "camd_db.db")
     conn = create_connection(database)
     print(values_list)
+    columns = [
+        "smiles",
+        "odour",
+        "compound_name",
+        "formula",
+        "boiling_point",
+        "melting_point",
+        "flash_point",
+        "solubility",
+        "vapor_pressure",
+        "density",
+        "vapor_density",
+        "pka",
+    ]
+
+    filled_values = [(x, values_list[0].index(x)) for x in values_list[0] if x != ""]
+
+    update_strings = [f'{columns[x[1]]}="{x[0]}"' for x in filled_values]
 
     try:
         c = conn.cursor()
 
-        c.executemany(
-            """
-        INSERT OR REPLACE INTO molecule_table (smiles, odour, compound_name, formula, boiling_point, melting_point, 
-        flash_point, solubility, vapor_pressure, density, vapor_density, pka)
-        VALUES (?,?,?,?,?,?,?,?,?,?,?,?) 
-        """,
-            values_list,
+        compound_already_exists = (
+            True
+            if len(
+                c.execute(
+                    f'SELECT compound_name from molecule_table WHERE compound_name="{values_list[0][2]}"'
+                ).fetchall()
+            )
+            else False
         )
+
+        if compound_already_exists:
+            c.execute(
+                f'UPDATE molecule_table SET {",".join(update_strings)} WHERE compound_name="{values_list[0][2]}"'
+            )
+        else:
+            c.executemany(
+                """
+            INSERT OR REPLACE INTO molecule_table (smiles, odour, compound_name, formula, boiling_point, melting_point, 
+            flash_point, solubility, vapor_pressure, density, vapor_density, pka)
+            VALUES (?,?,?,?,?,?,?,?,?,?,?,?) 
+            """,
+                values_list,
+            )
 
         conn.commit()
 
